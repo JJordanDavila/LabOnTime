@@ -1,4 +1,4 @@
-package pe.edu.upc.labontime;
+package pe.edu.upc.labontime.fragments.paciente;
 
 
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import pe.edu.upc.labontime.R;
 
 
 public class HomePacienteFragment extends Fragment {

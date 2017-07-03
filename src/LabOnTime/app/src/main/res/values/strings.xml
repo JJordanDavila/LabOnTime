@@ -7,4 +7,59 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--PARA EL HOME-->
+
+    <string name="texto_bienvenidos">BIENVENIDOS...!!!</string>
+    <string name="texto_bienvenidos_Des">This is our web page</string>
+
+
+    <!--PARA EL ABOUT ME-->
+    <string name="name_george">George Quispitongo B.</string>
+    <string name="activity_george">Programmer</string>
+    <string name="company_george">Hellmann Worldwide Logistics S.A.C. </string>
+    <string name="bio_george">George Quispitongo B. while in high school
+                    and in 1976, they started Apple Computers. Jobs oversaw the development of
+                    revolutionary products like the iPhone and iPad.</string>
+
+    <string name="name_software">Analisis de orina</string>
+    <string name="name_hardware">Analisis de heces</string>
+    <string name="name_office">Analisis de sangre</string>
+    <string name="name_estructura">Analisis de corazon</string>
+
+    <string name="title_office">Descripcion</string>
+    <string name="title_software">Descripcion</string>
+    <string name="title_hardware">Descripcion</string>
+    <string name="title_estructura">Descripcion</string>
+
+    <string name="company_software">Laboratorios MEDIC</string>
+    <string name="company_estructura">Laboratorios FARMA</string>
+    <string name="company_hardware">Laboratorios ARCANGEL</string>
+    <string name="company_office">Laboratorios LANDERLAN</string>
+
+    <string name="bio_software">Our Company make difernts softwares to diferents requirements</string>
+    <string name="bio_hardware">Lawrence Joseph \"Larry\" Ellison (born August
+17, 1944) is an American internet entrepreneur, businessman and philanthropist. He
+serves as executive chairman and chief technology officer of Oracle Corporation,
+having previously been chief executive from its founding until September 2014. In
+2014, he was listed by Forbes magazine as the third-wealthiest man in America and as
+the fifth-wealthiest person in the world, with a fortune of US$56.2 billion.</string>
+    <string name="bio_office">Mark Zuckerberg was the Harvard computer
+science student who along with a few friends launched the world\'s most popular social
+networking website called Facebook in February 2004.</string>
+    <string name="bio_steve_jobs">George Quispitongo B. while in high school
+and in 1976, they started Apple Computers. Jobs oversaw the development of
+revolutionary products like the iPhone and iPad.</string>
+    <string name="bio_esturctura">Steve Wozniak is the co-founder of Apple
+Computers. Wozniak has always been credited with being the main designer of the first
+Apples.</string>
+
+
+
+
+
+
+
+
 </resources>

@@ -1,4 +1,4 @@
-package pe.edu.upc.labontime;
+package pe.edu.upc.labontime.activities;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,7 +6,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
+
+import pe.edu.upc.labontime.fragments.paciente.ConfiguracionPacienteFragment;
+import pe.edu.upc.labontime.fragments.paciente.HomePacienteFragment;
+import pe.edu.upc.labontime.R;
+import pe.edu.upc.labontime.fragments.paciente.ResultadoPacienteFragment;
 
 public class PacienteActivity extends AppCompatActivity {
 

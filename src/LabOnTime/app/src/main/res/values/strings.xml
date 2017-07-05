@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">LabOnTime</string>
+
+    <!-- WILL-->
+    <string name="title_home_paciente">Williams Enero Quispe (Paciente)</string>
+    <string name="title_configuracion_paciente">CONFIGURACION DE DATOS DEL PACIENTE)</string>
+
     <string name="title_home"></string>
     <string name="title_dashboard">Analisis</string>
     <string name="title_notifications">Settings</string>

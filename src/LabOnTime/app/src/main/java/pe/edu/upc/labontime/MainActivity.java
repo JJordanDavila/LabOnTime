@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
 
         if(usuarioEditText.getText().toString().equals("admin") &&
-                passwordEditText.getText().toString().equals("admin")) {
+                passwordEditText.getText().toString().equals("123456")) {
             Toast.makeText(getApplicationContext(),
                     "Redirecting...",Toast.LENGTH_SHORT).show();
 

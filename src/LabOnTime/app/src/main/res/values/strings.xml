@@ -3,12 +3,14 @@
 
     <!-- WILL-->
     <string name="title_home_paciente">Williams Enero Quispe (Paciente)</string>
-    <string name="title_configuracion_paciente">CONFIGURACION DE DATOS DEL PACIENTE)</string>
+    <string name="title_configuracion_paciente">CONFIGURACION DE DATOS DEL PACIENTE</string>
+    <string name="title_configuracion_medico"> CONFIGURACION DE DATOS DEL MEDICO</string>
 
     <string name="title_home"></string>
     <string name="title_dashboard">Analisis</string>
     <string name="title_notifications">Settings</string>
     <string name="title_activity_paciente">Paciente</string>
+    <string name="title_activity_medico">Medico</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -59,11 +61,6 @@ revolutionary products like the iPhone and iPad.</string>
     <string name="bio_esturctura">Steve Wozniak is the co-founder of Apple
 Computers. Wozniak has always been credited with being the main designer of the first
 Apples.</string>
-
-
-
-
-
 
 
 

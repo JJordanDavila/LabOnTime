@@ -6,14 +6,17 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import pe.edu.upc.labontime.R;
+import pe.edu.upc.labontime.fragments.medico.ConfiguracionMedicoFragment;
+import pe.edu.upc.labontime.fragments.medico.HomeMedicoFragment;
+import pe.edu.upc.labontime.fragments.medico.ResultadoMedicoFragment;
 import pe.edu.upc.labontime.fragments.paciente.ConfiguracionPacienteFragment;
 import pe.edu.upc.labontime.fragments.paciente.HomePacienteFragment;
-import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.fragments.paciente.ResultadoPacienteFragment;
 
-public class PacienteActivity extends AppCompatActivity {
-
+public class MedicoActivity extends AppCompatActivity {
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -29,7 +32,7 @@ public class PacienteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_paciente);
+        setContentView(R.layout.activity_medico);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -39,11 +42,11 @@ public class PacienteActivity extends AppCompatActivity {
     private Fragment getFragmentFor (int id){
         switch (id){
             case R.id.navigation_home:
-                return  new HomePacienteFragment();
+                return  new HomeMedicoFragment();
             case R.id.navigation_listaResultado:
-                return  new ResultadoPacienteFragment();
+                return  new ResultadoMedicoFragment();
             case R.id.navigation_configuraciones:
-                return  new ConfiguracionPacienteFragment();
+                return  new ConfiguracionMedicoFragment();
 
         }
 

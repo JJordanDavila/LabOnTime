@@ -41,13 +41,22 @@ public class MainActivity extends AppCompatActivity {
         usuarioEditText = (EditText) findViewById(R.id.usuarioEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
 
-        if(usuarioEditText.getText().toString().equals("admin") &&
+        if(usuarioEditText.getText().toString().equals("Paciente") &&
                 passwordEditText.getText().toString().equals("1234567")) {
             Toast.makeText(getApplicationContext(),
                     "Redirecting...",Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(MainActivity.this,PacienteActivity.class);
             startActivity(intent);
+        }else if(usuarioEditText.getText().toString().equals("Medico") &&
+                passwordEditText.getText().toString().equals("1234567"))
+        {
+            Toast.makeText(getApplicationContext(),
+                    "Redirecting...",Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(MainActivity.this,MedicoActivity.class);
+            startActivity(intent);
+
         }else{
             Toast.makeText(getApplicationContext(),
                     "Wrong Credentials...",Toast.LENGTH_SHORT).show();

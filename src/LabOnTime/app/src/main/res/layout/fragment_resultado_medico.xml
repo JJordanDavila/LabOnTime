@@ -4,13 +4,71 @@
     android:layout_height="match_parent"
     tools:context="pe.edu.upc.labontime.fragments.medico.ResultadoMedicoFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Resultado Medico Laboratorio"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:id="@+id/nameTextView"/>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resultados Laboratorio-Medico"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:id="@+id/nameTextView"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <Spinner
+                    android:id="@+id/spinLaboratorios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/laboratorios_arrays"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_Tipo_Analisis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/tipo_analisis_arrays"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+
+
+                <Spinner
+                    android:id="@+id/spin_Pacientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/pacientes_arrays"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_Estados"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/estados_arrays"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+
+            </LinearLayout>
+
+
+    </ScrollView>
 
 </FrameLayout>

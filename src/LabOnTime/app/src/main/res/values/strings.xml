@@ -63,5 +63,35 @@ Computers. Wozniak has always been credited with being the main designer of the 
 Apples.</string>
 
 
+    <!--COMBO BOX EN LA LISTA DE ANALISIS POR REVISAR-->
+
+
+    <string-array name="laboratorios_arrays">
+        <item>Laboratorio A</item>
+        <item>Laboratorio B</item>
+        <item>Laboratorio C</item>
+        <item>Laboratorio D</item>
+    </string-array>
+
+    <string-array name="tipo_analisis_arrays">
+        <item>Analisis de Orina</item>
+        <item>Analisis de Heses</item>
+        <item>Analisis Pulmonar</item>
+        <item>Analisis Cardiaco</item>
+    </string-array>
+
+    <string-array name="pacientes_arrays">
+        <item>George</item>
+        <item>William</item>
+        <item>Jordan</item>
+        <item>Walter</item>
+    </string-array>
+
+    <string-array name="estados_arrays">
+        <item>Pendientes</item>
+        <item>Terminados</item>
+    </string-array>
+    <string name="title_activity_icon_paciente_analisis">Resultado Laboratorio-Medico</string>
+
 
 </resources>

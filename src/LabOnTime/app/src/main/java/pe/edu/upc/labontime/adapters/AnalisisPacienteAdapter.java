@@ -15,14 +15,12 @@ import java.util.List;
 
 import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.activities.IconPacienteAnalisisActivity;
-import pe.edu.upc.labontime.activities.MainActivity;
-import pe.edu.upc.labontime.activities.MedicoActivity;
-import pe.edu.upc.labontime.beans.AnalisisPacienteBean;
+import pe.edu.upc.labontime.beans.AnalisisPaciente;
 
 public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacienteAdapter.ViewHolder> {
 
-    List<AnalisisPacienteBean> analisispaciente;
-    public void setAnalisispaciente(List<AnalisisPacienteBean> analisispaciente) { this.analisispaciente = analisispaciente; }
+    List<AnalisisPaciente> analisispaciente;
+    public void setAnalisispaciente(List<AnalisisPaciente> analisispaciente) { this.analisispaciente = analisispaciente; }
 
     @Override
     public AnalisisPacienteAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

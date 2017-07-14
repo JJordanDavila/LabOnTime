@@ -1,7 +1,7 @@
 package pe.edu.upc.labontime.beans;
 
 
-public class AnalisisPacienteBean {
+public class AnalisisPaciente {
 
     private String nombreAnalisis;
     private String descripcionAnalisis;
@@ -9,7 +9,7 @@ public class AnalisisPacienteBean {
     private String resultadoAnalisis;
     private int pictureId;
 
-    public AnalisisPacienteBean(String nombreAnalisis, String descripcionAnalisis, String laboratorio, String resultadoAnalisis, int pictureId)
+    public AnalisisPaciente(String nombreAnalisis, String descripcionAnalisis, String laboratorio, String resultadoAnalisis, int pictureId)
     {
         this.nombreAnalisis = nombreAnalisis;
         this.descripcionAnalisis = descripcionAnalisis;

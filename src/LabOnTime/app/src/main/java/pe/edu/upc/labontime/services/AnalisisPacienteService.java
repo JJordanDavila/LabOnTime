@@ -7,33 +7,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.labontime.R;
-import pe.edu.upc.labontime.beans.AnalisisPacienteBean;
+import pe.edu.upc.labontime.beans.AnalisisPaciente;
 
 public class AnalisisPacienteService {
-    private List<AnalisisPacienteBean> listaAnalisisPaciente;
-    public  List<AnalisisPacienteBean> getListaAnalisisPaciente(){return listaAnalisisPaciente;}
+    private List<AnalisisPaciente> listaAnalisisPaciente;
+    public  List<AnalisisPaciente> getListaAnalisisPaciente(){return listaAnalisisPaciente;}
 
 
     public AnalisisPacienteService(Context context)
     {
         Resources res = context.getResources();
         listaAnalisisPaciente = new ArrayList<>();
-        listaAnalisisPaciente.add(new AnalisisPacienteBean(res.getString(R.string.name_software),
+        listaAnalisisPaciente.add(new AnalisisPaciente(res.getString(R.string.name_software),
                 res.getString(R.string.title_software),
                 res.getString(R.string.company_software),
                 res.getString(R.string.bio_software),
                 R.drawable.orina));
-        listaAnalisisPaciente.add(new AnalisisPacienteBean(res.getString(R.string.name_hardware),
+        listaAnalisisPaciente.add(new AnalisisPaciente(res.getString(R.string.name_hardware),
                 res.getString(R.string.title_hardware),
                 res.getString(R.string.company_hardware),
                 res.getString(R.string.bio_hardware),
                 R.drawable.heces));
-        listaAnalisisPaciente.add(new AnalisisPacienteBean(res.getString(R.string.name_office),
+        listaAnalisisPaciente.add(new AnalisisPaciente(res.getString(R.string.name_office),
                 res.getString(R.string.title_office),
                 res.getString(R.string.company_office),
                 res.getString(R.string.bio_office),
                 R.drawable.sangre));;
-        listaAnalisisPaciente.add(new AnalisisPacienteBean(res.getString(R.string.name_estructura),
+        listaAnalisisPaciente.add(new AnalisisPaciente(res.getString(R.string.name_estructura),
                 res.getString(R.string.title_estructura),
                 res.getString(R.string.company_estructura),
                 res.getString(R.string.bio_esturctura),

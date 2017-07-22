@@ -30,7 +30,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp">
-                        <EditText android:id="@+id/passwordEditText"
+                        <EditText android:id="@+id/passwordPaEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPassword"
@@ -44,7 +44,7 @@
                         android:layout_marginBottom="8dp">
 
                         <EditText
-                            android:id="@+id/direccionEditText"
+                            android:id="@+id/direccionPaEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Dirección"
@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp">
-                        <EditText android:id="@+id/correoEditText"
+                        <EditText android:id="@+id/correoPaEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textCapWords"
@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp">
-                        <EditText android:id="@+id/telefonoEditText"
+                        <EditText android:id="@+id/telefonoPaEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textCapWords"
@@ -76,7 +76,7 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.v7.widget.AppCompatButton
-                        android:id="@+id/actualizarDatosButton"
+                        android:id="@+id/actualizarDatosPaButton"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"

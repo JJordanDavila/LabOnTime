@@ -9,13 +9,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 import pe.edu.upc.labontime.R;
+import pe.edu.upc.labontime.models.Laboratory;
 
 public class MainActivity extends AppCompatActivity {
 
     Button loginButton;
     EditText usuarioEditText;
     EditText passwordEditText;
+
+    //para el asyntask
+    JSONObject jsonobjectUsuario;
+    JSONArray jsonarrayUsuario;
+    ArrayList<String> usuariolist;
+    ArrayList<Laboratory> usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
 
 
 }

@@ -1,4 +1,4 @@
-package pe.edu.upc.labontime.beans;
+package pe.edu.upc.labontime.models;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import pe.edu.upc.labontime.network.ClearbitLogoService;
 
 public class Laboratory {
     int id;

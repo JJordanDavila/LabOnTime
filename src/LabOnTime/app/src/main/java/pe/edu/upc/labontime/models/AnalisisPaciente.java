@@ -1,4 +1,4 @@
-package pe.edu.upc.labontime.beans;
+package pe.edu.upc.labontime.models;
 
 
 public class AnalisisPaciente {

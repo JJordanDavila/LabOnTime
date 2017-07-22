@@ -92,6 +92,8 @@ Apples.</string>
         <item>Terminados</item>
     </string-array>
     <string name="title_activity_icon_paciente_analisis">Resultado Laboratorio-Medico</string>
+    <string name="title_activity_lista_analisis_medico">ListaAnalisisMedico</string>
+    <string name="title_activity_analisis_medico">AnalisisMedicoActivity</string>
 
 
 </resources>

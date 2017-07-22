@@ -14,7 +14,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="56dp"
+                android:paddingTop="45dp"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp">
 
@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/passwordEditText"
+                    <EditText android:id="@+id/passwordMeEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
@@ -45,7 +45,7 @@
                     android:layout_marginBottom="8dp">
 
                     <EditText
-                        android:id="@+id/direccionEditText"
+                        android:id="@+id/direccionMeEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Dirección"
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/correoEditText"
+                    <EditText android:id="@+id/correoMeEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/telefonoEditText"
+                    <EditText android:id="@+id/telefonoMeEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"
@@ -77,7 +77,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/actualizarDatosButton"
+                    android:id="@+id/actualizarDatosMeButton"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -86,6 +86,27 @@
                     android:background="@color/colorPrimary"
                     android:textColor="#FFFFFF"
                     android:text="Actualizar datos"/>
+
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/orina"
+                    android:id="@+id/cameraImageView"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/capturarFotoButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:padding="8dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#FFFFFF"
+                    android:text="Capture Photo"/>
+
 
             </LinearLayout>
     </ScrollView>

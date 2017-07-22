@@ -1,9 +1,9 @@
-package pe.edu.upc.labontime.beans;
+package pe.edu.upc.labontime.models;
 
 import java.util.List;
 import java.util.Map;
 
-public class Doctor {
+public class Patient {
     int id;
     String names;
     String lastname;
@@ -14,10 +14,11 @@ public class Doctor {
     Map<String, String> urlsToLogos;
     private List<String> sortBysAvailable;
 
-    public Doctor() {
+    public Patient() {
+
     }
 
-    public Doctor(int id, String names, String lastname, String address, String phone, String email, String documentnumber, Map<String, String> urlsToLogos, List<String> sortBysAvailable) {
+    public Patient(int id, String names, String lastname, String address, String phone, String email, String documentnumber, Map<String, String> urlsToLogos, List<String> sortBysAvailable) {
         this.id = id;
         this.names = names;
         this.lastname = lastname;
@@ -100,4 +101,6 @@ public class Doctor {
     public void setSortBysAvailable(List<String> sortBysAvailable) {
         this.sortBysAvailable = sortBysAvailable;
     }
+
+
 }

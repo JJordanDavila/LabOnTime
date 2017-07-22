@@ -15,7 +15,7 @@ import java.util.List;
 
 import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.activities.IconPacienteAnalisisActivity;
-import pe.edu.upc.labontime.beans.AnalisisPaciente;
+import pe.edu.upc.labontime.models.AnalisisPaciente;
 
 public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacienteAdapter.ViewHolder> {
 

@@ -133,7 +133,7 @@ public class ResultadoMedicoFragment extends Fragment{
             // Create an array to populate the spinner
             laborarorylist = new ArrayList<String>();
             // JSON file URL address
-            jsonobjectLaboratory = JSONfunctions.getJSONfromURL("http://labontimegqb.somee.com/api/Laboratorys/GetLaboratorys/?filter=0");
+            jsonobjectLaboratory = JSONfunctions.getJSONfromURL("http://labontime.somee.com/api/Laboratorys/GetLaboratorys/?filter=0");
 
             try {
                 // Locate the NodeList name
@@ -181,7 +181,7 @@ public class ResultadoMedicoFragment extends Fragment{
             // Create an array to populate the spinner
             analysislist = new ArrayList<String>();
             // JSON file URL address
-            jsonobjectAnalisis = JSONfunctions.getJSONfromURL("http://labontimegqb.somee.com/api/Analysis/GetAnalysis/?filter=0");
+            jsonobjectAnalisis = JSONfunctions.getJSONfromURL("http://labontime.somee.com/api/Analysis/GetAnalysis/?filter=0");
 
             try {
                 // Locate the NodeList name
@@ -229,7 +229,7 @@ public class ResultadoMedicoFragment extends Fragment{
             // Create an array to populate the spinner
             patientlist = new ArrayList<String>();
             // JSON file URL address
-            jsonobjectPaciente = JSONfunctions.getJSONfromURL("http://labontimegqb.somee.com/api/Patients/GetPatients/?filter=0");
+            jsonobjectPaciente = JSONfunctions.getJSONfromURL("http://labontime.somee.com/api/Patients/GetPatients/?filter=0");
 
             try {
                 // Locate the NodeList name

@@ -14,7 +14,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="45dp"
+                android:paddingTop="4dp"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp">
 
@@ -23,7 +23,34 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:text="@string/title_configuracion_medico"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textSize="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:weightSum="1">
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:id="@+id/cameraMeImageView"
+                        android:src="@drawable/example_camera"/>
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/capturarFotoMeButton"
+                        android:layout_width="70dp"
+                        android:layout_height="39dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/colorPrimary"
+                        android:padding="8dp"
+                        android:text="Photo"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
 
 
                 <android.support.design.widget.TextInputLayout
@@ -86,27 +113,6 @@
                     android:background="@color/colorPrimary"
                     android:textColor="#FFFFFF"
                     android:text="Actualizar datos"/>
-
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/orina"
-                    android:id="@+id/cameraImageView"/>
-
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/capturarFotoButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:padding="8dp"
-                    android:background="@color/colorPrimary"
-                    android:textColor="#FFFFFF"
-                    android:text="Capture Photo"/>
-
 
             </LinearLayout>
     </ScrollView>

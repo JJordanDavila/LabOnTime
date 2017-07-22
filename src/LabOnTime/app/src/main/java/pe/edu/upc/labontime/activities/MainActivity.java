@@ -23,14 +23,13 @@ public class MainActivity extends AppCompatActivity {
     EditText usuarioEditText;
     EditText passwordEditText;
 
-<<<<<<< HEAD
+
     //para el asyntask
     JSONObject jsonobjectUsuario;
     JSONArray jsonarrayUsuario;
     ArrayList<String> usuariolist;
     ArrayList<Laboratory> usuario;
-=======
->>>>>>> 998ca668164aeed084479abd38bc901b2881ccbd
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

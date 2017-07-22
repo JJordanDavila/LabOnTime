@@ -4,6 +4,7 @@ package pe.edu.upc.labontime.fragments.medico;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -33,13 +34,10 @@ public class ConfiguracionMedicoFragment extends Fragment {
     Button actualizarDatosMeButton;
 
     //PARA LA CAMARA
-    public  static  final  int REQUEST_CAPTURE=1;
-    ImageView cameraImageView;
-    Button capturarFotoButton;
-    Intent intent;
-    final  static int cons=0;
+    public  static  final  int CAM_REQUEST=1;
+    ImageView cameraMeImageView;
+    Button capturarFotoMeButton;
     Bitmap bmp;
-    private File imageFile;
 
     public ConfiguracionMedicoFragment() {
         // Required empty public constructor
@@ -57,15 +55,22 @@ public class ConfiguracionMedicoFragment extends Fragment {
         correoMeEditText = (EditText) myView.findViewById(R.id.correoMeEditText);
         telefonoMeEditText = (EditText) myView.findViewById(R.id.telefonoMeEditText);
 
-        cameraImageView=(ImageView) myView.findViewById(R.id.cameraImageView);
-        capturarFotoButton = (Button)myView.findViewById(R.id.capturarFotoButton);
+        cameraMeImageView=(ImageView) myView.findViewById(R.id.cameraMeImageView);
+        capturarFotoMeButton = (Button)myView.findViewById(R.id.capturarFotoMeButton);
 
-        capturarFotoButton.setOnClickListener(new View.OnClickListener() {
+        capturarFotoMeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-               // abrirCamera();
-
+                int id;
+                id= view.getId();
+                switch (id){
+                    case R.id.capturarFotoMeButton:
+                        Intent camera_intent =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(camera_intent,CAM_REQUEST);
+                        //File file=getFile();
+                        //camera_intent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(file));
+                        break;
+                }
             }
         });
 
@@ -94,30 +99,29 @@ public class ConfiguracionMedicoFragment extends Fragment {
     }
 
 
-   public  void process(View view){
-       Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-       imageFile=new File(Environment
-               .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),"test.jpg");
-       Uri tempuri=Uri.fromFile(imageFile);
-       intent.putExtra(MediaStore.EXTRA_OUTPUT,tempuri);
-       intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY,1);
-       startActivityForResult(intent,0);
-   }
 
-    public void abrirCamera(){
-        intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,1);
-
+    private File getFile(){
+        File folder =new File("sdcard/camera_app");
+        if(!folder.exists()){
+            folder.mkdir();
+        }
+        File image_file =new File(folder,"cam_image.jpg");
+        return  image_file;
 
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        getActivity();
-        if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
-
+     super.onActivityResult(requestCode,resultCode,data);
+        if(resultCode==Activity.RESULT_OK){
+            Bundle ext=data.getExtras();
+            bmp =(Bitmap)ext.get("data");
+            cameraMeImageView.setImageBitmap(bmp);
         }
+
+        //String path="sdcard/camera_app/cam_image.jpg";
+        //cameraImageView.setImageDrawable(Drawable.createFromPath(path));
+
     }
 
 

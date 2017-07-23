@@ -16,21 +16,43 @@ import java.util.Map;
 public class User {
     int id;
     int roles_id;
+    String description;
     int persons_id;
     String name;
     String password;
-    Boolean active;
+    String names;
+    String lastnames;
+    String address;
+    String phone;
+    String email;
+    String documentnumber;
+    String ruc;
+    String type;
+    String bussinessname;
+    String doctornumber;
+    String speciality;
 
     public User() {
     }
 
-    public User(int id, int roles_id, int persons_id, String name, String password, Boolean active) {
+    public User(int id, int roles_id, String description, int persons_id, String name, String password, String names, String lastnames, String address, String phone, String email, String documentnumber, String ruc, String type, String bussinessname, String doctornumber, String speciality) {
         this.id = id;
         this.roles_id = roles_id;
+        this.description = description;
         this.persons_id = persons_id;
         this.name = name;
         this.password = password;
-        this.active = active;
+        this.names = names;
+        this.lastnames = lastnames;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.documentnumber = documentnumber;
+        this.ruc = ruc;
+        this.type = type;
+        this.bussinessname = bussinessname;
+        this.doctornumber = doctornumber;
+        this.speciality = speciality;
     }
 
     public int getId() {
@@ -47,6 +69,14 @@ public class User {
 
     public void setRoles_id(int roles_id) {
         this.roles_id = roles_id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPersons_id() {
@@ -73,25 +103,114 @@ public class User {
         this.password = password;
     }
 
-    public Boolean getActive() {
-        return active;
+    public String getNames() {
+        return names;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setNames(String names) {
+        this.names = names;
+    }
+
+    public String getLastnames() {
+        return lastnames;
+    }
+
+    public void setLastnames(String lastnames) {
+        this.lastnames = lastnames;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDocumentnumber() {
+        return documentnumber;
+    }
+
+    public void setDocumentnumber(String documentnumber) {
+        this.documentnumber = documentnumber;
+    }
+
+    public String getRuc() {
+        return ruc;
+    }
+
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBussinessname() {
+        return bussinessname;
+    }
+
+    public void setBussinessname(String bussinessname) {
+        this.bussinessname = bussinessname;
+    }
+
+    public String getDoctornumber() {
+        return doctornumber;
+    }
+
+    public void setDoctornumber(String doctornumber) {
+        this.doctornumber = doctornumber;
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public static User build(JSONObject jsonSource) {
         User user = new User();
-
         try {
-
             user.setId(jsonSource.getInt("id"));
             user.setRoles_id(jsonSource.getInt("roles_id"));
+            user.setDescription(jsonSource.getString("description"));
             user.setPersons_id(jsonSource.getInt("persons_id"));
             user.setName(jsonSource.getString("name"));
             user.setPassword(jsonSource.getString("password"));
-            user.setActive(jsonSource.getBoolean("active"));
+            user.setNames(jsonSource.getString("names"));
+            user.setLastnames(jsonSource.getString("lastnames"));
+            user.setAddress(jsonSource.getString("address"));
+            user.setPhone(jsonSource.getString("phone"));
+            user.setEmail(jsonSource.getString("email"));
+            user.setDocumentnumber(jsonSource.getString("documentnumber"));
+            user.setRuc(jsonSource.getString("ruc"));
+            user.setType(jsonSource.getString("type"));
+            user.setBussinessname(jsonSource.getString("bussinessname"));
+            user.setDoctornumber(jsonSource.getString("doctornumber"));
+            user.setSpeciality(jsonSource.getString("speciality"));
 
             return user;
 

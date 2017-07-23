@@ -5,6 +5,7 @@ package pe.edu.upc.labontime.network;
  */
 
 public class LabOnTimeService {
-    public static String LOGIN_URL = "http://labontime.somee.com/api/Login/ValidateUser";
+     public static String LOGIN_URL = "http://labontime.somee.com/api/Login/ValidateUser";
+    /*public static String LOGIN_URL = "http://localhost:52708/api/Login/ValidateUser";*/
 
 }

@@ -32,6 +32,13 @@ import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.adapters.UserAdapter;
 import pe.edu.upc.labontime.beans.User;
 import pe.edu.upc.labontime.network.LabOnTimeService;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import pe.edu.upc.labontime.R;
+import pe.edu.upc.labontime.models.Laboratory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,12 +50,145 @@ public class MainActivity extends AppCompatActivity {
     UserAdapter userAdapter;
     List<User> users;
 
+    List<User> listaUsers;
+
+    User userEntity= new User();
+
+    //para el asyntask
+    JSONObject jsonobjectUsuario;
+    JSONArray jsonarrayUsuario;
+    ArrayList<String> usuariolist;
+    ArrayList<Laboratory> usuario;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         users = new ArrayList<>();
         userAdapter = new UserAdapter(users);
+
+        listaUsers=new List<User>() {
+            @Override
+            public int size() {
+                return 0;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public boolean contains(Object o) {
+                return false;
+            }
+
+            @NonNull
+            @Override
+            public Iterator<User> iterator() {
+                return null;
+            }
+
+            @NonNull
+            @Override
+            public Object[] toArray() {
+                return new Object[0];
+            }
+
+            @NonNull
+            @Override
+            public <T> T[] toArray(@NonNull T[] ts) {
+                return null;
+            }
+
+            @Override
+            public boolean add(User user) {
+                return false;
+            }
+
+            @Override
+            public boolean remove(Object o) {
+                return false;
+            }
+
+            @Override
+            public boolean containsAll(@NonNull Collection<?> collection) {
+                return false;
+            }
+
+            @Override
+            public boolean addAll(@NonNull Collection<? extends User> collection) {
+                return false;
+            }
+
+            @Override
+            public boolean addAll(int i, @NonNull Collection<? extends User> collection) {
+                return false;
+            }
+
+            @Override
+            public boolean removeAll(@NonNull Collection<?> collection) {
+                return false;
+            }
+
+            @Override
+            public boolean retainAll(@NonNull Collection<?> collection) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public User get(int i) {
+                return null;
+            }
+
+            @Override
+            public User set(int i, User user) {
+                return null;
+            }
+
+            @Override
+            public void add(int i, User user) {
+
+            }
+
+            @Override
+            public User remove(int i) {
+                return null;
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public ListIterator<User> listIterator() {
+                return null;
+            }
+
+            @NonNull
+            @Override
+            public ListIterator<User> listIterator(int i) {
+                return null;
+            }
+
+            @NonNull
+            @Override
+            public List<User> subList(int i, int i1) {
+                return null;
+            }
+        };
 
         login();
 
@@ -67,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void login() {
 
+
        /* usuarioEditText = (EditText) findViewById(R.id.usuarioEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);*/
        try {
@@ -74,22 +215,39 @@ public class MainActivity extends AppCompatActivity {
                    .addQueryParameter("user", "user01")
                    .addQueryParameter("password","12345678")
                    .setTag(TAG)
-                   .setPriority(Priority.MEDIUM)
+                   .setPriority(Priority.LOW)
                    .build()
-                   .getAsObjectList(User.class, new ParsedRequestListener<List<User>>() {
+                   .getAsJSONObject(new JSONObjectRequestListener() {
                        @Override
-                       public void onResponse(List<User> users) {
-                           // do anything with response
-                           Log.d(TAG, "userList size : " + users.size());
-                           for (User user : users) {
-                               Log.d(TAG, "id : " + user.getId());
-                               Log.d(TAG, "firstname : " + user.getNames());
-                               Log.d(TAG, "lastname : " + user.getLastnames());
+                       public void onResponse(JSONObject response) {
+
+                           try {
+                               userEntity=User.buildObject(response.getJSONObject("user"));
+                           } catch (JSONException e) {
+                               e.printStackTrace();
                            }
+                          /* try {
+                               JSONObject userJsonObject= response.getJSONObject("user");
+                               Iterator x = userJsonObject.keys();
+                               JSONArray jsonArray = new JSONArray();
+
+                               while (x.hasNext()){
+                                   String key = (String) x.next();
+                                   jsonArray.put(userJsonObject.get(key));
+                               }
+
+                               listaUsers = User.buildList(jsonArray);
+                           } catch (JSONException e) {
+                               e.printStackTrace();
+                           }*/
+                          // Log.d(TAG, "Found Sources: " + String.valueOf(listaUsers.size()));
+                           //sourcesAdapter.setSources(listaUsers);
+                           //sourcesAdapter.notifyDataSetChanged();
                        }
+
                        @Override
                        public void onError(ANError anError) {
-                           // handle error
+
                        }
                    });
        }catch (Exception e){
@@ -124,6 +282,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 }

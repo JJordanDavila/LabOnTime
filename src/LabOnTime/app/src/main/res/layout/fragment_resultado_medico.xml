@@ -41,7 +41,6 @@
                     android:id="@+id/spin_Tipo_Analisis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/tipo_analisis_arrays"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     />
@@ -51,7 +50,6 @@
                     android:id="@+id/spin_Pacientes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/pacientes_arrays"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     />
@@ -65,9 +63,31 @@
                     android:layout_marginBottom="8dp"
                     />
 
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/buscarResultadosLabButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:padding="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Buscar"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="368dp"
+                android:layout_height="495dp"
+                android:id="@+id/analisisMedicoRecyclerView"
+                tools:layout_editor_absoluteY="8dp"
+                tools:layout_editor_absoluteX="8dp" />
+
+
+
             </LinearLayout>
 
 
     </ScrollView>
+
+
 
 </FrameLayout>

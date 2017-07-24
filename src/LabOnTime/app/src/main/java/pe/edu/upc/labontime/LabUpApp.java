@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.androidnetworking.AndroidNetworking;
 
-import pe.edu.upc.labontime.beans.AnalisisPaciente;
+import pe.edu.upc.labontime.models.AnalisisPaciente;
 import pe.edu.upc.labontime.network.NewsApiService;
 
 public class LabUpApp extends Application {

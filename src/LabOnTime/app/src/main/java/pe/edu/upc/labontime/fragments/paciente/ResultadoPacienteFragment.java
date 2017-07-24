@@ -14,7 +14,7 @@ import java.util.List;
 
 import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.adapters.AnalisisPacienteAdapter;
-import pe.edu.upc.labontime.beans.AnalisisPaciente;
+import pe.edu.upc.labontime.models.AnalisisPaciente;
 import pe.edu.upc.labontime.services.AnalisisPacienteService;
 
 

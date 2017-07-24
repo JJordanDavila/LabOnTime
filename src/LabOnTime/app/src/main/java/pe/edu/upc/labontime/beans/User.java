@@ -220,10 +220,45 @@ public class User {
         return null;
     }
 
-    public static List<User> build(JSONArray jsonSources) {
+    public static User buildObject(JSONObject jsonSource) {
+        User user = new User();
+        //List<String> sortBysAvailable = new ArrayList<>();
+        try {
+            int length = 1;
+            for (int i = 0; i < length; i++) {
+                user.setId(jsonSource.getInt("id"));
+                user.setRoles_id(jsonSource.getInt("roles_id"));
+                user.setDescription(jsonSource.getString("description"));
+                user.setPersons_id(jsonSource.getInt("persons_id"));
+                user.setName(jsonSource.getString("name"));
+                user.setPassword(jsonSource.getString("password"));
+                user.setNames(jsonSource.getString("names"));
+                user.setLastnames(jsonSource.getString("lastnames"));
+                user.setAddress(jsonSource.getString("address"));
+                user.setPhone(jsonSource.getString("phone"));
+                user.setEmail(jsonSource.getString("email"));
+                user.setDocumentnumber(jsonSource.getString("documentnumber"));
+                user.setRuc(jsonSource.getString("ruc"));
+                user.setType(jsonSource.getString("type"));
+                user.setBussinessname(jsonSource.getString("bussinessname"));
+                user.setDoctornumber(jsonSource.getString("doctornumber"));
+                user.setSpeciality(jsonSource.getString("speciality"));
+            }
+            //.setSortBysAvailable(sortBysAvailable);
+
+            return user;
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public static List<User> buildList(JSONArray jsonSources) {
         List<User> users = new ArrayList<>();
         int length = jsonSources.length();
-        for(int i = 0; i < length; i++)
+        for (int i = 0; i < length; i++)
             try {
                 users.add(User.build(jsonSources.getJSONObject(i)));
             } catch (JSONException e) {

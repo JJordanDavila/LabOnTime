@@ -16,6 +16,7 @@ public class AnalisisPacienteService {
 
     public AnalisisPacienteService(Context context)
     {
+        /*
         Resources res = context.getResources();
         listaAnalisisPaciente = new ArrayList<>();
         listaAnalisisPaciente.add(new AnalisisPaciente(res.getString(R.string.name_software),
@@ -38,6 +39,7 @@ public class AnalisisPacienteService {
                 res.getString(R.string.company_estructura),
                 res.getString(R.string.bio_esturctura),
                 R.drawable.corazon));
+                */
     }
 
 

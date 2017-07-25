@@ -2,6 +2,7 @@ package pe.edu.upc.labontime.fragments.medico;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,9 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -34,18 +37,15 @@ import pe.edu.upc.labontime.models.AnalisisMedico;
 import pe.edu.upc.labontime.models.Analysis;
 import pe.edu.upc.labontime.models.Laboratory;
 import pe.edu.upc.labontime.models.Patient;
-import pe.edu.upc.labontime.network.NewsApiService;
+import pe.edu.upc.labontime.network.LabOnTimeService;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ResultadoMedicoFragment extends Fragment{
 
-    //List<AnalisisMedico> analisisMedicos;
-   // public static String TAG = "LabUpApp";
-   // RecyclerView analisisMedicoRecyclerView;
-   // AnalisisMedicoAdapter analisisMedicoAdapter;
-   // RecyclerView.LayoutManager analisisMedicoLayoutManager;
+    public static String TAG = "LabOnTimeApp";
+    List<AnalisisMedico> analisisMedicos;
 
     JSONObject jsonobjectLaboratory;
     JSONArray  jsonarrayLaboratory;
@@ -74,8 +74,8 @@ public class ResultadoMedicoFragment extends Fragment{
     Button buscarResultadoLabButton;
 
 
-    List<AnalisisMedico> analisisMedicos;
-    public static String TAG = "LabUpApp";
+
+
     RecyclerView analisisMedicoRecyclerView;
     AnalisisMedicoAdapter analisisMedicoAdapter;
     RecyclerView.LayoutManager analisisMedicoLayoutManager;
@@ -167,6 +167,23 @@ public class ResultadoMedicoFragment extends Fragment{
                     new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, laborarorylist);
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerLaboratorio.setAdapter(spinnerArrayAdapter);
+
+            // Spinner on item click listener
+
+            spinnerLaboratorio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+                        @Override
+                        public void onItemSelected(AdapterView<?> arg0,
+                                                   View arg1, int position, long arg3) {
+
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> arg0) {
+                            // TODO Auto-generated method stub
+                        }
+                    });
 
 
         }
@@ -330,35 +347,42 @@ public class ResultadoMedicoFragment extends Fragment{
     }
 
     private void updateAnalisisMedico() {
+        try {
 
-        AndroidNetworking.get(NewsApiService.ANALISIS_PACIENTE_URL)
-                .addPathParameter("laboratorio", "1")
-                .addPathParameter("analisis", "1")
-                .addPathParameter("paciente", "1")
-                .addPathParameter("doctor", "1")
-                .setTag(TAG)
-                .setPriority(Priority.LOW)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
+            AndroidNetworking.get(LabOnTimeService.ANALISIS_LABORATORIO_URL)
+                    .addQueryParameter("laboratorio","0")
+                    .addQueryParameter("analisis"   ,"0")
+                    .addQueryParameter("paciente"   ,"0")
+                    .addQueryParameter("doctor"     ,"0")
+                    .setTag(TAG)
+                    .setPriority(Priority.LOW)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
 
-                            analisisMedicos = AnalisisMedico.build(response.getJSONArray("laboratoryAnalysis"));
-                            Log.d(TAG, "Found Analisis Medico: " + String.valueOf(analisisMedicos.size()));
-                            analisisMedicoAdapter.setAnalisisMedicoAdapter(analisisMedicos);
-                            analisisMedicoAdapter.notifyDataSetChanged();
+                                analisisMedicos = AnalisisMedico.buildList(response.getJSONArray("laboratoryAnalysis"));
+                                Log.d(TAG, "Found Analisis Medico: " + String.valueOf(analisisMedicos.size()));
+                                analisisMedicoAdapter.setAnalisisMedicoAdapter(analisisMedicos);
+                                analisisMedicoAdapter.notifyDataSetChanged();
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onError(ANError anError) {
+                        @Override
+                        public void onError(ANError anError) {
 
-                    }
-                });
+                        }
+                    });
+
+
+        } catch (Exception e)
+        {
+                e.printStackTrace();
+        }
 
     }
 }

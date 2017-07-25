@@ -1,6 +1,9 @@
 package pe.edu.upc.labontime.adapters;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +12,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import pe.edu.upc.labontime.LabUpApp;
 import pe.edu.upc.labontime.R;
+import pe.edu.upc.labontime.activities.IconMedicoAnalisisActivity;
 import pe.edu.upc.labontime.models.AnalisisMedico;
 
 
@@ -33,15 +38,30 @@ public class AnalisisMedicoAdapter extends RecyclerView.Adapter<AnalisisMedicoAd
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tipoAnalisisTextView.setText(analisisMedicos.get(position).getTipo_analisis());
-        holder.nombrePacienteTextView.setText(analisisMedicos.get(position).getNombres_paciente());
-        holder.sourceConstraintLayout.setOnClickListener(new View.OnClickListener() {
+        holder.nombrePacienteTextView.setText("Paciente:  "+ analisisMedicos.get(position).getNombres_paciente());
+        holder.nombreLaboratorioTextView.setText("Laboratorio:  "+ analisisMedicos.get(position).getNombre_laboratorio());
+        holder.nombreMedicoTextView.setText("Medico:  "+ analisisMedicos.get(position).getNombres_doctor());
+        holder.analisisMedicoCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //codigo para linkear a otro activity
+                Bundle bundle = new Bundle();
+                bundle.putInt("currentPosition", position);
+                Intent iconIntent = new Intent(view.getContext(), IconMedicoAnalisisActivity.class);
+                iconIntent.putExtras(bundle);
+                view.getContext().startActivity(iconIntent);
             }
         });
+      /*  holder.analisisMedicoCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                LabUpApp.getInstance().setCurrentAnalisisMedico(analisisMedicos.get(position));
+                view.getContext().startActivity(new Intent(view.getContext(), IconMedicoAnalisisActivity.class));
+
+            }
+        });*/
 
     }
 
@@ -51,15 +71,26 @@ public class AnalisisMedicoAdapter extends RecyclerView.Adapter<AnalisisMedicoAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ConstraintLayout sourceConstraintLayout;
+        //ConstraintLayout sourceConstraintLayout;
+        CardView analisisMedicoCardView;
         TextView tipoAnalisisTextView;
         TextView nombrePacienteTextView;
+        TextView nombreLaboratorioTextView;
+        TextView nombreMedicoTextView;
+        TextView motivoConsultaPacienteTextView;
+        TextView resultadoAnalisisLaboratorioTextView;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            sourceConstraintLayout=(ConstraintLayout) itemView.findViewById(R.id.analisisMedicoConstraintLayout);
-            //logoANImageView = (ANImageView) itemView.findViewById(R.id.logoANImageView);
+
+            analisisMedicoCardView = (CardView) itemView.findViewById(R.id.analisisMedicoCardView);
             tipoAnalisisTextView = (TextView) itemView.findViewById(R.id.tipoAnalisisTextView);
             nombrePacienteTextView = (TextView) itemView.findViewById(R.id.nombrePacienteTextView);
+            nombreLaboratorioTextView = (TextView) itemView.findViewById(R.id.nombreLaboratorioTextView);
+            nombreMedicoTextView = (TextView) itemView.findViewById(R.id.nombreMedicoTextView);
+            motivoConsultaPacienteTextView= (TextView) itemView.findViewById(R.id.motivoConsultaPacienteTextView);
+            resultadoAnalisisLaboratorioTextView= (TextView) itemView.findViewById(R.id.resultadoAnalisisLaboratorioTextView);
+
         }
     }
 }

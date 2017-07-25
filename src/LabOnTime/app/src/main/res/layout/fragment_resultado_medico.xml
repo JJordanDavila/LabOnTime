@@ -14,7 +14,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="30dp"
+            android:paddingTop="5dp"
             android:paddingLeft="24dp"
             android:paddingRight="24dp">
 
@@ -66,10 +66,10 @@
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/buscarResultadosLabButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:background="@color/colorPrimary"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
                     android:padding="12dp"
                     android:textColor="#FFFFFF"
                     android:text="Buscar"/>

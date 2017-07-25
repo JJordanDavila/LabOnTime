@@ -4,12 +4,13 @@ import android.app.Application;
 
 import com.androidnetworking.AndroidNetworking;
 
+import pe.edu.upc.labontime.models.AnalisisMedico;
 import pe.edu.upc.labontime.models.AnalisisPaciente;
-import pe.edu.upc.labontime.network.NewsApiService;
+import pe.edu.upc.labontime.network.LabOnTimeService;
 
 public class LabUpApp extends Application {
 
-    private NewsApiService newsApiService;
+    private LabOnTimeService labOnTimeService;
     private static LabUpApp instance;
 
     public LabUpApp(){
@@ -25,16 +26,17 @@ public class LabUpApp extends Application {
     public void onCreate() {
         super.onCreate();
         AndroidNetworking.initialize(getApplicationContext());
-        newsApiService = new NewsApiService();
+        labOnTimeService = new LabOnTimeService();
     }
 
-    public AnalisisPaciente getCurrentSource(){
-        return newsApiService.getCurrentAnalisisPaciente();
+    public AnalisisMedico getCurrentAnalisisMedico() {
+        return labOnTimeService.getCurrentAnalisisMedico();
     }
 
-    public LabUpApp setCurrentSource(AnalisisPaciente analisisPaciente){
-        newsApiService.setCurrentAnalisisPaciente(analisisPaciente);
+    public LabUpApp setCurrentAnalisisMedico(AnalisisMedico source) {
+        labOnTimeService.setCurrentSource(source);
         return this;
     }
+
 
 }

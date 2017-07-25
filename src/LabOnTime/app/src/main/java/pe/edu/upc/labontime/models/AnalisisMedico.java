@@ -13,6 +13,7 @@ import pe.edu.upc.labontime.network.ClearbitLogoService;
 
 public class AnalisisMedico {
 
+    int id_medical_analisis;
     int id_request_analisis;
     String  resultado_laboratorio;
     String status_laboratorio;
@@ -25,15 +26,14 @@ public class AnalisisMedico {
     String nombres_paciente;
     int id_doctor;
     String nombres_doctor;
-    private Map<String, String> urlsToLogos;
-    private List<String> sortBysAvailable;
-    private String url;
+
 
 
     public AnalisisMedico() {
     }
 
-    public AnalisisMedico(int id_request_analisis, String resultado_laboratorio, String status_laboratorio, String motivo_consulta_paciente, int id_laboratorio, String nombre_laboratorio, int id_analisis, String tipo_analisis, int id_paciente, String nombres_paciente, int id_doctor, String nombres_doctor, Map<String, String> urlsToLogos, List<String> sortBysAvailable, String url) {
+    public AnalisisMedico(int id_medical_analisis,int id_request_analisis, String resultado_laboratorio, String status_laboratorio, String motivo_consulta_paciente, int id_laboratorio, String nombre_laboratorio, int id_analisis, String tipo_analisis, int id_paciente, String nombres_paciente, int id_doctor, String nombres_doctor, Map<String, String> urlsToLogos, List<String> sortBysAvailable, String url) {
+        this.id_medical_analisis=id_medical_analisis;
         this.id_request_analisis = id_request_analisis;
         this.resultado_laboratorio = resultado_laboratorio;
         this.status_laboratorio = status_laboratorio;
@@ -46,9 +46,6 @@ public class AnalisisMedico {
         this.nombres_paciente = nombres_paciente;
         this.id_doctor = id_doctor;
         this.nombres_doctor = nombres_doctor;
-        this.urlsToLogos = urlsToLogos;
-        this.sortBysAvailable = sortBysAvailable;
-        this.url = url;
     }
 
     public int getId_request_analisis() {
@@ -159,68 +156,31 @@ public class AnalisisMedico {
         return  this;
     }
 
-    public Map<String, String> getUrlsToLogos() {
-        return urlsToLogos;
+    public int getId_medical_analisis() {
+        return id_medical_analisis;
     }
 
-    public String getUrlToSmallLogo() {
-        return urlsToLogos.get("small");
-    }
-
-    public String getUrlToMediumLogo() {
-        return urlsToLogos.get("medium");
-    }
-
-    public String getUrlToLargeLogo() {
-        return urlsToLogos.get("large");
-    }
-
-    public AnalisisMedico setUrlsToLogos(Map<String, String> urlsToLogos) {
-        this.urlsToLogos = urlsToLogos;
+    public AnalisisMedico setId_medical_analisis(int id_medical_analisis) {
+        this.id_medical_analisis = id_medical_analisis;
         return  this;
-    }
-
-    public List<String> getSortBysAvailable() {
-        return sortBysAvailable;
-    }
-
-    public AnalisisMedico setSortBysAvailable(List<String> sortBysAvailable) {
-        this.sortBysAvailable = sortBysAvailable;
-        return  this;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public AnalisisMedico setUrl(String url) {
-        this.url = url;
-        return this;
     }
 
     public static AnalisisMedico build(JSONObject jsonAnalisisMedico) {
-
         AnalisisMedico analisisMedico = new AnalisisMedico();
-        List<String> sortBysAvailable = new ArrayList<>();
-       // Map<String, String> urlsToLogos = new HashMap<>();
-
         try {
-            int length = jsonAnalisisMedico.getJSONArray("nombres_doctor").length();
-            for(int i = 0; i < length; i++)
-                sortBysAvailable.add(
-                        jsonAnalisisMedico.getJSONArray("nombres_doctor").getString(i));
-            analisisMedico.setId_request_analisis(jsonAnalisisMedico.getInt("id_request_analisis"))
-                    .setResultado_laboratorio(jsonAnalisisMedico.getString("resultado_laboratorio"))
-                    .setStatus_laboratorio(jsonAnalisisMedico.getString("status_laboratorio"))
-                    .setMotivo_consulta_paciente(jsonAnalisisMedico.getString("motivo_consulta_paciente"))
-                    .setId_laboratorio(jsonAnalisisMedico.getInt("id_laboratorio"))
-                    .setNombre_laboratorio(jsonAnalisisMedico.getString("nombre_laboratorio"))
-                    .setId_analisis(jsonAnalisisMedico.getInt("id_analisis"))
-                    .setTipo_analisis(jsonAnalisisMedico.getString("tipo_analisis"))
-                    .setId_paciente(jsonAnalisisMedico.getInt("id_paciente"))
-                    .setNombres_paciente(jsonAnalisisMedico.getString("nombres_paciente"))
-                    .setId_doctor(jsonAnalisisMedico.getInt("id_doctor"))
-                    .setSortBysAvailable(sortBysAvailable);
+            analisisMedico.setId_medical_analisis(jsonAnalisisMedico.getInt("id_medical_analisis"));
+            analisisMedico.setId_request_analisis(jsonAnalisisMedico.getInt("id_request_analisis"));
+            analisisMedico.setResultado_laboratorio(jsonAnalisisMedico.getString("resultado_laboratorio"));
+            analisisMedico.setStatus_laboratorio(jsonAnalisisMedico.getString("status_laboratorio"));
+            analisisMedico.setMotivo_consulta_paciente(jsonAnalisisMedico.getString("motivo_consulta_paciente"));
+            analisisMedico.setId_laboratorio(jsonAnalisisMedico.getInt("id_laboratorio"));
+            analisisMedico.setNombre_laboratorio(jsonAnalisisMedico.getString("nombre_laboratorio"));
+            analisisMedico.setId_analisis(jsonAnalisisMedico.getInt("id_analisis"));
+            analisisMedico.setTipo_analisis(jsonAnalisisMedico.getString("tipo_analisis"));
+            analisisMedico.setId_paciente(jsonAnalisisMedico.getInt("id_paciente"));
+            analisisMedico.setNombres_paciente(jsonAnalisisMedico.getString("nombres_paciente"));
+            analisisMedico.setId_doctor(jsonAnalisisMedico.getInt("id_doctor"));
+            analisisMedico.setNombres_doctor(jsonAnalisisMedico.getString("nombres_doctor"));
             return analisisMedico;
 
         } catch (JSONException e) {
@@ -229,18 +189,48 @@ public class AnalisisMedico {
         return null;
     }
 
+    public static AnalisisMedico buildObject(JSONObject jsonAnalisisMedico) {
+            AnalisisMedico analisisMedico = new AnalisisMedico();
+        try {
+            int length = 1;
+            for (int i = 0; i < length; i++) {
+                analisisMedico.setId_medical_analisis(jsonAnalisisMedico.getInt("id_medical_analisis"));
+                analisisMedico.setId_request_analisis(jsonAnalisisMedico.getInt("id_request_analisis"));
+                analisisMedico.setResultado_laboratorio(jsonAnalisisMedico.getString("resultado_laboratorio"));
+                analisisMedico.setStatus_laboratorio(jsonAnalisisMedico.getString("status_laboratorio"));
+                analisisMedico.setMotivo_consulta_paciente(jsonAnalisisMedico.getString("motivo_consulta_paciente"));
+                analisisMedico.setId_laboratorio(jsonAnalisisMedico.getInt("id_laboratorio"));
+                analisisMedico.setNombre_laboratorio(jsonAnalisisMedico.getString("nombre_laboratorio"));
+                analisisMedico.setId_analisis(jsonAnalisisMedico.getInt("id_analisis"));
+                analisisMedico.setTipo_analisis(jsonAnalisisMedico.getString("tipo_analisis"));
+                analisisMedico.setId_paciente(jsonAnalisisMedico.getInt("id_paciente"));
+                analisisMedico.setNombres_paciente(jsonAnalisisMedico.getString("nombres_paciente"));
+                analisisMedico.setId_doctor(jsonAnalisisMedico.getInt("id_doctor"));
+                analisisMedico.setNombres_doctor(jsonAnalisisMedico.getString("nombres_doctor"));
 
-    public static List<AnalisisMedico> build(JSONArray jsonSources) {
+            }
+            return analisisMedico;
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+
+    public static List<AnalisisMedico> buildList(JSONArray jsonAnalisisMedico) {
         List<AnalisisMedico> analisisMedicos = new ArrayList<>();
-        int length = jsonSources.length();
+        int length = jsonAnalisisMedico.length();
         for(int i = 0; i < length; i++)
             try {
-                analisisMedicos.add(AnalisisMedico.build(jsonSources.getJSONObject(i)));
+                analisisMedicos.add(AnalisisMedico.build(jsonAnalisisMedico.getJSONObject(i)));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         return analisisMedicos;
     }
+
 
 
 }

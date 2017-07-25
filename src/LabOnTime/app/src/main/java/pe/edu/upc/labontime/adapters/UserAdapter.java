@@ -2,7 +2,7 @@ package pe.edu.upc.labontime.adapters;
 
 import java.util.List;
 
-import pe.edu.upc.labontime.beans.User;
+import pe.edu.upc.labontime.models.User;
 
 /**
  * Created by hp on 15/07/2017.

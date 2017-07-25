@@ -6,10 +6,10 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-feature android:name="android.hardware.camera2"/>
+    <uses-feature android:name="android.hardware.camera2" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
     <application
         android:name=".LabUpApp"
@@ -39,8 +39,8 @@
             android:label="@string/title_activity_icon_paciente_analisis"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.AnalisisMedicoActivity"
-            android:label="@string/title_activity_analisis_medico"
+            android:name=".activities.IconMedicoAnalisisActivity"
+            android:label="@string/title_activity_icon_medico_analisis"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

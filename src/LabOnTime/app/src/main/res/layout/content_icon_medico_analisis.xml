@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="pe.edu.upc.labontime.activities.IconMedicoAnalisisActivity"
+    tools:showIn="@layout/activity_icon_medico_analisis">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_margin="1dp"
+        app:cardCornerRadius="4dp"
+        android:id="@+id/analisisMedicoCardView"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/orina"
+                android:id="@+id/pictureImageMeView"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tipo de Analisis"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:id="@+id/tipoAnalisisTextView"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre Paciente"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/nombrePacienteTextView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre Laboratorio"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/nombreLaboratorioTextView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Nombre Medico"
+                    android:textStyle="bold"
+                    android:id="@+id/nombreMedicoTextView"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Motivo consulta Paciente"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/motivoConsultaPacienteTextView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resultado Analisis Laboratorio"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/resultadoAnalisisLaboratorioTextView"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+                    <EditText android:id="@+id/diagnosticoMedicoEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/grabarValoracionButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:padding="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Diagnosticar"/>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

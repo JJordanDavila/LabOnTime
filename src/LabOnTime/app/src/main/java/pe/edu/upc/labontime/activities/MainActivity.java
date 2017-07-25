@@ -3,9 +3,7 @@ package pe.edu.upc.labontime.activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,30 +12,20 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.androidnetworking.interfaces.ParsedRequestListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.adapters.UserAdapter;
-import pe.edu.upc.labontime.beans.User;
+import pe.edu.upc.labontime.models.User;
 import pe.edu.upc.labontime.network.LabOnTimeService;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
-
-import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.models.Laboratory;
 
 public class MainActivity extends AppCompatActivity {

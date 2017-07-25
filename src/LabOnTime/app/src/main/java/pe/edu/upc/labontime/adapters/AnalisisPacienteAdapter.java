@@ -1,6 +1,7 @@
 package pe.edu.upc.labontime.adapters;
 
 
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import pe.edu.upc.labontime.LabUpApp;
 import pe.edu.upc.labontime.R;
+import pe.edu.upc.labontime.activities.IconPacienteAnalisisActivity;
 import pe.edu.upc.labontime.models.AnalisisPaciente;
 
 public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacienteAdapter.ViewHolder> {
@@ -38,6 +41,13 @@ public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacien
         holder.nombrePacientePaTextView.setText("Paciente:  "+ analisisPacientes.get(position).getNombres_paciente());
         holder.nombreLaboratorioPaTextView.setText("Laboratorio:  "+ analisisPacientes.get(position).getNombre_laboratorio());
         holder.nombreMedicoPaTextView.setText("Medico:  "+ analisisPacientes.get(position).getNombres_doctor());
+        holder.analisisPacienteCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LabUpApp.getInstance().setCurrentAnalisisPaciente(analisisPacientes.get(position));
+                view.getContext().startActivity(new Intent(view.getContext(),IconPacienteAnalisisActivity.class));
+            }
+        });
 
     }
 

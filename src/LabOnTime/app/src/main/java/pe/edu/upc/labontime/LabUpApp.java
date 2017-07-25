@@ -33,8 +33,17 @@ public class LabUpApp extends Application {
         return labOnTimeService.getCurrentAnalisisMedico();
     }
 
-    public LabUpApp setCurrentAnalisisMedico(AnalisisMedico source) {
-        labOnTimeService.setCurrentSource(source);
+    public LabUpApp setCurrentAnalisisMedico(AnalisisMedico analisisMedico) {
+        labOnTimeService.setCurrentAnalisisMedico(analisisMedico);
+        return this;
+    }
+
+    public AnalisisPaciente getCurrentAnalisisPaciente() {
+        return labOnTimeService.getCurrentanalisisPaciente();
+    }
+
+    public LabUpApp setCurrentAnalisisPaciente(AnalisisPaciente analisisPaciente) {
+        labOnTimeService.setCurrentanalisisPaciente(analisisPaciente);
         return this;
     }
 

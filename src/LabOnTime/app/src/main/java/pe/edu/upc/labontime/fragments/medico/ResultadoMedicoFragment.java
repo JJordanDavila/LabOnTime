@@ -74,6 +74,9 @@ public class ResultadoMedicoFragment extends Fragment{
     Button buscarResultadoLabButton;
 
 
+    Spinner idSpinnerLaboratorio;
+
+
 
 
     RecyclerView analisisMedicoRecyclerView;
@@ -118,8 +121,6 @@ public class ResultadoMedicoFragment extends Fragment{
         new LllenarSpinnerLaboratorios().execute();
         new LllenarSpinnerAnalisis().execute();
         new LllenarSpinnerPacientes().execute();
-        //new LllenarListaResultadoMedico().execute();
-
 
     }
 
@@ -175,6 +176,8 @@ public class ResultadoMedicoFragment extends Fragment{
                         @Override
                         public void onItemSelected(AdapterView<?> arg0,
                                                    View arg1, int position, long arg3) {
+
+                            //idSpinnerLaboratorio= (TextView)
 
 
                         }
@@ -281,66 +284,6 @@ public class ResultadoMedicoFragment extends Fragment{
                     new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, patientlist);
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerPaciente.setAdapter(spinnerArrayAdapter);
-
-
-        }
-    }
-
-    private class LllenarListaResultadoMedico extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            // Locate the WorldPopulation Class
-            analisisMedico = new ArrayList<AnalisisMedico>();
-            // Create an array to populate the spinner
-            analysisMedicolist = new ArrayList<String>();
-            // JSON file URL address
-            jsonobjectAnalisisMedico = JSONfunctions.getJSONfromURL("http://labontimegqb.somee.com/api/LaboratoryAnalysis/GetLaboratoryAnalysis/?laboratorio=0&analisis=0&paciente=0&doctor=0");
-
-            try {
-                // Locate the NodeList name
-                jsonarrayAnalisisMedico = jsonobjectAnalisisMedico.getJSONArray("laboratoryAnalysis");
-                for (int i = 0; i < jsonarrayAnalisisMedico.length(); i++) {
-                    jsonobjectAnalisisMedico = jsonarrayAnalisisMedico.getJSONObject(i);
-
-                    AnalisisMedico worldpop = new AnalisisMedico();
-
-                    worldpop.setId_request_analisis(jsonobjectAnalisisMedico.optInt("id_request_analisis"));
-                    worldpop.setResultado_laboratorio(jsonobjectAnalisisMedico.optString("resultado_laboratorio"));
-                    worldpop.setStatus_laboratorio(jsonobjectAnalisisMedico.optString("status_laboratorio"));
-                    worldpop.setMotivo_consulta_paciente(jsonobjectAnalisisMedico.optString("motivo_consulta_paciente"));
-                    worldpop.setId_laboratorio(jsonobjectAnalisisMedico.optInt("id_laboratorio"));
-                    worldpop.setNombre_laboratorio(jsonobjectAnalisisMedico.optString("nombre_laboratorio"));
-                    worldpop.setId_analisis(jsonobjectAnalisisMedico.optInt("id_analisis"));
-                    worldpop.setTipo_analisis(jsonobjectAnalisisMedico.optString("tipo_analisis"));
-                    worldpop.setId_paciente(jsonobjectAnalisisMedico.optInt("id_paciente"));
-                    worldpop.setNombres_paciente(jsonobjectAnalisisMedico.optString("nombres_paciente"));
-                    worldpop.setId_doctor(jsonobjectAnalisisMedico.optInt("id_doctor"));
-                    worldpop.setNombres_doctor(jsonobjectAnalisisMedico.optString("nombres_doctor"));
-
-                    analisisMedico.add(worldpop);
-                    // Populate spinner with country names
-                  //  patientlist.add(worldpop);
-
-                }
-
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void args) {
-
-            Context context = getContext();
-            analisisMedico = new ArrayList<>();
-           // analisisMedicoRecyclerView = (RecyclerView) getActivity().findViewById(R.id.analisisMedicoRecyclerView);
-            analisisMedicoAdapter = new AnalisisMedicoAdapter(analisisMedico);
-            analisisMedicoLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-            analisisMedicoRecyclerView.setAdapter(analisisMedicoAdapter);
-            analisisMedicoRecyclerView.setLayoutManager(analisisMedicoLayoutManager);
 
 
         }

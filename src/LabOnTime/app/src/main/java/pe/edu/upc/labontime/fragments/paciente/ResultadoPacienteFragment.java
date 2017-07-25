@@ -59,6 +59,8 @@ public class ResultadoPacienteFragment extends Fragment {
         analisisPacienteRecyclerView.setAdapter(analisisPacienteAdapter);
         analisisPacienteRecyclerView.setLayoutManager(analisisPacienteLayoutManager);
 
+
+
         updateAnalisisPaciente();
 
         return  myView;

@@ -14,32 +14,38 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
             <ImageView
                 android:layout_width="match_parent"
+                android:layout_marginTop="100dp"
                 android:layout_height="240dp"
                 android:src="@drawable/medico"
-                android:id="@+id/pictureImageView"/>
+                android:id="@+id/pictureMeImageView"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bienvenido"
+                    android:text="Nombre Medico"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:id="@+id/nameTextView"/>
+                    android:textSize="20dp"
+                    android:id="@+id/nombreMedicoTextView"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Medico George Quispitongo"
+                    android:text="DNI"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:id="@+id/titleTextView"/>
+                    android:textSize="20dp"
+                    android:id="@+id/DNIMeTextView"/>
 
             </LinearLayout>
         </LinearLayout>

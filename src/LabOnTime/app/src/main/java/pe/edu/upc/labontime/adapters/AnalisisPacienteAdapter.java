@@ -15,7 +15,7 @@ import pe.edu.upc.labontime.models.AnalisisPaciente;
 
 public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacienteAdapter.ViewHolder> {
 
-    public AnalisisPacienteAdapter AnalisisPacienteAdapter(List<AnalisisPaciente> analisisPacientes) {
+    public AnalisisPacienteAdapter setAnalisisPacienteAdapter(List<AnalisisPaciente> analisisPacientes) {
         this.analisisPacientes = analisisPacientes;
         return this;
     }

@@ -9,6 +9,7 @@ import pe.edu.upc.labontime.models.AnalisisMedico;
 public class LabOnTimeService {
      public static String LOGIN_URL = "http://labontime.somee.com/api/Login/ValidateUser";
      public static String ANALISIS_LABORATORIO_URL = "http://labontime.somee.com/api/LaboratoryAnalysis/GetLaboratoryAnalysis";
+     public static String ANALISIS_PACIENTE_URL = "http://labontime.somee.com/api/PatientAnalysis/GetPatientAnalysis";
      public static String UPDATE_DATOS_MEDICO = "http://labontime.somee.com/api/Login/UpdateUser";
 
      private AnalisisMedico currentanalisisMedico;

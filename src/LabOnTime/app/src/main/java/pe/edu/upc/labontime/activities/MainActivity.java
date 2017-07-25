@@ -32,6 +32,7 @@ import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.adapters.UserAdapter;
 import pe.edu.upc.labontime.beans.User;
 import pe.edu.upc.labontime.network.LabOnTimeService;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<User> listaUsers;
 
-    User userEntity= new User();
+    User userEntity = new User();
 
     //para el asyntask
     JSONObject jsonobjectUsuario;
@@ -85,57 +86,74 @@ public class MainActivity extends AppCompatActivity {
 
         usuarioEditText = (EditText) findViewById(R.id.usuarioEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-       try {
-           AndroidNetworking.get(LabOnTimeService.LOGIN_URL)
-                   .addQueryParameter("user", usuarioEditText.getText().toString())
-                   .addQueryParameter("password",passwordEditText.getText().toString())
-                   .setTag(TAG)
-                   .setPriority(Priority.LOW)
-                   .build()
-                   .getAsJSONObject(new JSONObjectRequestListener() {
-                       @Override
-                       public void onResponse(JSONObject response) {
+        try {
+            AndroidNetworking.get(LabOnTimeService.LOGIN_URL)
+                    .addQueryParameter("user", usuarioEditText.getText().toString())
+                    .addQueryParameter("password", passwordEditText.getText().toString())
+                    .setTag(TAG)
+                    .setPriority(Priority.LOW)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
 
-                           try {
+                            try {
                                /*WCB:Consumo del servicio de login capturando parametros*/
-                               userEntity=User.buildObject(response.getJSONObject("user"));
+                                userEntity = User.buildObject(response.getJSONObject("user"));
 
-                                   if (userEntity.getDescription().equals("Paciente")) {
-                                       Toast.makeText(getApplicationContext(),
-                                               "Redirecting...", Toast.LENGTH_SHORT).show();
+                                if (userEntity.getDescription().equals("Paciente")) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Redirecting...", Toast.LENGTH_SHORT).show();
 
-                                       Intent intent = new Intent(MainActivity.this, PacienteActivity.class);
-                                       startActivity(intent);
-                                   } else if (userEntity.getDescription().equals("Medico")) {
-                                       Toast.makeText(getApplicationContext(),
-                                               "Redirecting...", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(MainActivity.this, PacienteActivity.class);
+                                    startActivity(intent);
+                                } else if (userEntity.getDescription().equals("Medico")) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Redirecting...", Toast.LENGTH_SHORT).show();
 
-                                       Intent intent = new Intent(MainActivity.this, MedicoActivity.class);
-                                       startActivity(intent);
+                                    Intent intent = new Intent(MainActivity.this, MedicoActivity.class);
+                                    //WCB:Se envian los datos de la entidad User
+                                    intent.putExtra("id", userEntity.getId());
+                                    intent.putExtra("roles_id", userEntity.getRoles_id());
+                                    intent.putExtra("description", userEntity.getDescription());
+                                    intent.putExtra("persons_id", userEntity.getPersons_id());
+                                    intent.putExtra("name", userEntity.getName());
+                                    intent.putExtra("password", userEntity.getPassword());
+                                    intent.putExtra("names", userEntity.getNames());
+                                    intent.putExtra("lastnames", userEntity.getLastnames());
+                                    intent.putExtra("address", userEntity.getAddress());
+                                    intent.putExtra("phone", userEntity.getPhone());
+                                    intent.putExtra("email", userEntity.getEmail());
+                                    intent.putExtra("documentnumber", userEntity.getDocumentnumber());
+                                    intent.putExtra("ruc", userEntity.getRuc());
+                                    intent.putExtra("type", userEntity.getType());
+                                    intent.putExtra("bussinessname", userEntity.getBussinessname());
+                                    intent.putExtra("doctornumber", userEntity.getDoctornumber());
+                                    intent.putExtra("speciality", userEntity.getSpeciality());
 
-                                   } else {
-                                       Toast.makeText(getApplicationContext(),
-                                               "Wrong Credentials...", Toast.LENGTH_SHORT).show();
+                                    startActivity(intent);
 
-                                       usuarioEditText.setVisibility(View.VISIBLE);
-                                       usuarioEditText.setBackgroundColor(Color.RED);
-                               }
+                                } else {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Wrong Credentials...", Toast.LENGTH_SHORT).show();
 
-                           } catch (JSONException e) {
-                               e.printStackTrace();
-                           }
-                       }
+                                    usuarioEditText.setVisibility(View.VISIBLE);
+                                    usuarioEditText.setBackgroundColor(Color.RED);
+                                }
 
-                       @Override
-                       public void onError(ANError anError) {
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
 
-                       }
-                   });
-       }catch (Exception e){
-           e.printStackTrace();
-       }
+                        @Override
+                        public void onError(ANError anError) {
 
-
+                        }
+                    });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }

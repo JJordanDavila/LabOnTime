@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import pe.edu.upc.labontime.R;
-import pe.edu.upc.labontime.beans.User;
+import pe.edu.upc.labontime.models.User;
 import pe.edu.upc.labontime.fragments.medico.ConfiguracionMedicoFragment;
 import pe.edu.upc.labontime.fragments.medico.HomeMedicoFragment;
 import pe.edu.upc.labontime.fragments.medico.ResultadoMedicoFragment;

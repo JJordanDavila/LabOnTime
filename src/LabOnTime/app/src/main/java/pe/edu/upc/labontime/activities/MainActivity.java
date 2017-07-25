@@ -95,6 +95,25 @@ public class MainActivity extends AppCompatActivity {
                                             "Redirecting...", Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(MainActivity.this, PacienteActivity.class);
+                                    //WCB:Se envian los datos de la entidad User
+                                    intent.putExtra("id", userEntity.getId());
+                                    intent.putExtra("roles_id", userEntity.getRoles_id());
+                                    intent.putExtra("description", userEntity.getDescription());
+                                    intent.putExtra("persons_id", userEntity.getPersons_id());
+                                    intent.putExtra("name", userEntity.getName());
+                                    intent.putExtra("password", userEntity.getPassword());
+                                    intent.putExtra("names", userEntity.getNames());
+                                    intent.putExtra("lastnames", userEntity.getLastnames());
+                                    intent.putExtra("address", userEntity.getAddress());
+                                    intent.putExtra("phone", userEntity.getPhone());
+                                    intent.putExtra("email", userEntity.getEmail());
+                                    intent.putExtra("documentnumber", userEntity.getDocumentnumber());
+                                    intent.putExtra("ruc", userEntity.getRuc());
+                                    intent.putExtra("type", userEntity.getType());
+                                    intent.putExtra("bussinessname", userEntity.getBussinessname());
+                                    intent.putExtra("doctornumber", userEntity.getDoctornumber());
+                                    intent.putExtra("speciality", userEntity.getSpeciality());
+
                                     startActivity(intent);
                                 } else if (userEntity.getDescription().equals("Medico")) {
                                     Toast.makeText(getApplicationContext(),

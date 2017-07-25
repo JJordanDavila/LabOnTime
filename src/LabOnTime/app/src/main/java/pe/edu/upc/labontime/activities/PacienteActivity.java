@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import pe.edu.upc.labontime.beans.User;
 import pe.edu.upc.labontime.fragments.paciente.ConfiguracionPacienteFragment;
 import pe.edu.upc.labontime.fragments.paciente.HomePacienteFragment;
 import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.fragments.paciente.ResultadoPacienteFragment;
+import pe.edu.upc.labontime.models.User;
 
 public class PacienteActivity extends AppCompatActivity {
 

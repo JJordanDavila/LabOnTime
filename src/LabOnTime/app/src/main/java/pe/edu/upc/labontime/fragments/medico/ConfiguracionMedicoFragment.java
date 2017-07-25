@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -90,6 +91,8 @@ public class ConfiguracionMedicoFragment extends Fragment {
     ArrayList<String> analysislist;
     ArrayList<Analysis> analysis;
 
+    User entityUser = new User();
+
 
     public ConfiguracionMedicoFragment() {
         // Required empty public constructor
@@ -98,9 +101,12 @@ public class ConfiguracionMedicoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        //return inflater.inflate(R.layout.fragment_configuracion_medico, container, false);
+
         View myView = inflater.inflate(R.layout.fragment_configuracion_medico,container,false);
 
+        Bundle bundle = getActivity().getIntent().getExtras();
+        //CAPUTARANDO EL ID DE LA PERSONA
+        entityUser.setId(bundle.getInt("id")); //IDMEDICO ----4 george
 
         passwordMeEditText = (EditText) myView.findViewById(R.id.passwordMeEditText);
         direccionMeEditText = (EditText) myView.findViewById(R.id.direccionMeEditText);
@@ -134,20 +140,16 @@ public class ConfiguracionMedicoFragment extends Fragment {
         actualizarDatosMeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                idmedico= 4;  //ESTE CAMPO ESTA EN DURO
+                Bundle bundle = getActivity().getIntent().getExtras();
+                idmedico=4;  //ESTE CAMPO ESTA EN DURO
                 password = passwordMeEditText.getText().toString();
                 direccion = direccionMeEditText.getText().toString();
                 correo = correoMeEditText.getText().toString();
                 telefono = telefonoMeEditText.getText().toString();
 
-                //NOTA:ESTA EN DURO EL ID DEL MEDICO...!!!
-                //updateUsuarioMedico(idmedico,password,direccion,correo,telefono);
-               //new HttpAsyncTask().execute(LabOnTimeService.UPDATE_DATOS_MEDICO);
-
                 try{
-                    //ActualizarMedico();
                     updateUsuarioMedico(idmedico,password,direccion,correo,telefono);
+                    Toast.makeText(getActivity(),"Se actualizaron los datos del medico..!",Toast.LENGTH_SHORT).show();
                 }
                 catch(Exception ex)
                 {
@@ -164,10 +166,10 @@ public class ConfiguracionMedicoFragment extends Fragment {
     }
 
     //AQUI LLEGAN LOS PARAMETROS PARA HACER EL INSERT
-    public  void updateUsuarioMedico(int idpaciente ,String password, String direccion, String correo, String telefono){
+    public  void updateUsuarioMedico(Integer idmedico ,String password, String direccion, String correo, String telefono){
 
         LoginService loginService = ServiceGenerator.createService(LoginService.class);
-        Call<ResponseBD01> call = loginService.getAccessToken(idpaciente, password, direccion, correo, telefono);
+        Call<ResponseBD01> call = loginService.getAccessToken(idmedico, password, direccion, correo, telefono);
 
 
         call.enqueue(new Callback<ResponseBD01>() {
@@ -256,75 +258,6 @@ public class ConfiguracionMedicoFragment extends Fragment {
 
     }
 
-    public  void  ActualizarMedico()  throws UnsupportedEncodingException
-    {
-
-        String data = URLEncoder.encode("id", "UTF-8")
-                + "=" + URLEncoder.encode(idmedico.toString(), "UTF-8");
-
-        data += "&" + URLEncoder.encode("password", "UTF-8") + "="
-                + URLEncoder.encode(password.toString(), "UTF-8");
-
-        data += "&" + URLEncoder.encode("address", "UTF-8")
-                + "=" + URLEncoder.encode(direccion.toString(), "UTF-8");
-
-        data += "&" + URLEncoder.encode("email", "UTF-8")
-                + "=" + URLEncoder.encode(correo.toString(), "UTF-8");
-
-        data += "&" + URLEncoder.encode("phone", "UTF-8")
-                + "=" + URLEncoder.encode(telefono.toString(), "UTF-8");
-
-        String text = "";
-        BufferedReader reader=null;
-
-        // Send data
-        try
-        {
-
-            // Defined URL  where to send data
-            URL url = new URL(LabOnTimeService.UPDATE_DATOS_MEDICO);
-
-            // Send POST data request
-
-            URLConnection conn = url.openConnection();
-            conn.setDoOutput(true);
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream(),"UTF-8");
-            wr.write( data );
-            wr.flush();
-
-            // Get the server response
-
-            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-
-            // Read Server Response
-            while((line = reader.readLine()) != null)
-            {
-                // Append server response in string
-                sb.append(line + "\n");
-            }
-
-
-            text = sb.toString();
-        }
-        catch(Exception ex)
-        {
-            ex.printStackTrace();;
-        }
-        finally
-        {
-            try
-            {
-
-                reader.close();
-            }
-
-            catch(Exception ex) {}
-        }
-
-
-    }
 
 }
 

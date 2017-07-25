@@ -4,14 +4,10 @@ package pe.edu.upc.labontime.fragments.medico;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,11 +22,13 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,13 +37,16 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import pe.edu.upc.labontime.R;
-import pe.edu.upc.labontime.models.AnalisisMedico;
+import pe.edu.upc.labontime.models.Analysis;
 import pe.edu.upc.labontime.models.User;
 import pe.edu.upc.labontime.network.LabOnTimeService;
 
@@ -78,6 +79,10 @@ public class ConfiguracionMedicoFragment extends Fragment {
     private  static String direccion ;
     private  static String correo ;
     private  static String telefono ;
+    JSONObject jsonobjectUpdateMedico;
+    JSONArray jsonarrayUpdateMedico;;
+    ArrayList<String> analysislist;
+    ArrayList<Analysis> analysis;
 
 
     public ConfiguracionMedicoFragment() {
@@ -132,7 +137,15 @@ public class ConfiguracionMedicoFragment extends Fragment {
 
                 //NOTA:ESTA EN DURO EL ID DEL MEDICO...!!!
                 //updateUsuarioMedico(idmedico,password,direccion,correo,telefono);
-                new HttpAsyncTask().execute(LabOnTimeService.UPDATE_DATOS_MEDICO);
+               //new HttpAsyncTask().execute(LabOnTimeService.UPDATE_DATOS_MEDICO);
+
+                try{
+                    ActualizarMedico();
+                }
+                catch(Exception ex)
+                {
+
+                }
 
             }
         });
@@ -187,8 +200,6 @@ public class ConfiguracionMedicoFragment extends Fragment {
 
     }
 
-
-
     private File getFile(){
         File folder =new File("sdcard/camera_app");
         if(!folder.exists()){
@@ -213,93 +224,78 @@ public class ConfiguracionMedicoFragment extends Fragment {
 
     }
 
+    public  void  ActualizarMedico()  throws UnsupportedEncodingException
+    {
+
+        String data = URLEncoder.encode("id", "UTF-8")
+                + "=" + URLEncoder.encode(idmedico.toString(), "UTF-8");
+
+        data += "&" + URLEncoder.encode("password", "UTF-8") + "="
+                + URLEncoder.encode(password.toString(), "UTF-8");
+
+        data += "&" + URLEncoder.encode("address", "UTF-8")
+                + "=" + URLEncoder.encode(direccion.toString(), "UTF-8");
+
+        data += "&" + URLEncoder.encode("email", "UTF-8")
+                + "=" + URLEncoder.encode(correo.toString(), "UTF-8");
+
+        data += "&" + URLEncoder.encode("phone", "UTF-8")
+                + "=" + URLEncoder.encode(telefono.toString(), "UTF-8");
+
+        String text = "";
+        BufferedReader reader=null;
+
+        // Send data
+        try
+        {
+
+            // Defined URL  where to send data
+            URL url = new URL(LabOnTimeService.UPDATE_DATOS_MEDICO);
+
+            // Send POST data request
+
+            URLConnection conn = url.openConnection();
+            conn.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream(),"UTF-8");
+            wr.write( data );
+            wr.flush();
+
+            // Get the server response
+
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+
+            // Read Server Response
+            while((line = reader.readLine()) != null)
+            {
+                // Append server response in string
+                sb.append(line + "\n");
+            }
 
 
-    public static String POST(String url, User user){
-        InputStream inputStream = null;
-        String result = "";
-        try {
+            text = sb.toString();
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();;
+        }
+        finally
+        {
+            try
+            {
 
-            // 1. create HttpClient
-            HttpClient httpclient = new DefaultHttpClient();
+                reader.close();
+            }
 
-            // 2. make POST request to the given URL
-            HttpPost httpPost = new HttpPost(url);
-
-            String json = "";
-
-            // 3. build jsonObject
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("id", user.getId());
-            jsonObject.accumulate("password", user.getPassword());
-            jsonObject.accumulate("address", user.getAddress());
-            jsonObject.accumulate("email", user.getEmail());
-            jsonObject.accumulate("phone", user.getPhone());
-
-            // 4. convert JSONObject to JSON to String
-            json = jsonObject.toString();
-
-            // 5. set json to StringEntity
-            StringEntity se = new StringEntity(json);
-
-            // 6. set httpPost Entity
-            httpPost.setEntity(se);
-
-            // 7. Set some headers to inform server about the type of the content
-            httpPost.setHeader("Accept", "application/json");
-            httpPost.setHeader("Content-type", "application/json");
-
-            // 8. Execute POST request to the given URL
-            HttpResponse httpResponse = httpclient.execute(httpPost);
-
-            // 9. receive response as inputStream
-            inputStream = httpResponse.getEntity().getContent();
-
-            // 10. convert inputstream to string
-            if(inputStream != null)
-                result = convertInputStreamToString(inputStream);
-            else
-                result = "Did not work!";
-
-        } catch (Exception e) {
-            Log.d("InputStream", e.getLocalizedMessage());
+            catch(Exception ex) {}
         }
 
-        // 11. return result
-        return result;
-    }
-
-    private static String convertInputStreamToString(InputStream inputStream) throws IOException{
-        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
-        String line = "";
-        String result = "";
-        while((line = bufferedReader.readLine()) != null)
-            result += line;
-
-        inputStream.close();
-        return result;
 
     }
-
-    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-
-            user = new User();
-            user.setId(4);
-            user.setPassword(password);
-            user.setAddress(direccion);
-            user.setEmail(correo);
-            user.setPhone(telefono);
-
-            return POST(urls[0],user);
-        }
-        // onPostExecute displays the results of the AsyncTask.
-        @Override
-        protected void onPostExecute(String result) {
-            Toast.makeText(getActivity().getBaseContext(), "Data Sent!", Toast.LENGTH_LONG).show();
-        }
-    }
-
 
 }
+
+
+
+

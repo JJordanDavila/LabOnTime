@@ -14,12 +14,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
             <ImageView
                 android:layout_width="match_parent"
+                android:layout_marginTop="100dp"
                 android:layout_height="240dp"
                 android:src="@drawable/paciente"
-                android:id="@+id/pictureImageView"/>
+                android:id="@+id/picturePaImageView"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -28,18 +30,19 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bienvenido"
+                    android:text="Nombre Paciente"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:id="@+id/nameTextView"/>
+                    android:textSize="20dp"
+                    android:id="@+id/nombrePacienteTextView"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Paciente Andrea Mejia"
+                    android:text="DNI"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:id="@+id/titleTextView"/>
+                    android:textSize="20dp"
+                    android:id="@+id/DNIPaTextView"/>
 
             </LinearLayout>
         </LinearLayout>

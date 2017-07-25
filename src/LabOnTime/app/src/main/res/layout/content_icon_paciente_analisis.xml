@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_margin="1dp"
         app:cardCornerRadius="4dp"
-        android:id="@+id/personCardView">
+        android:id="@+id/analisisPacienteCardView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,9 +22,9 @@
             android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:src="@drawable/orina"
-                android:id="@+id/pictureImageView"/>
+                android:layout_height="150dp"
+                android:src="@drawable/sangre"
+                android:id="@+id/pictureImageMeView"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -33,36 +33,60 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/name_software"
+                    android:text="Tipo de Analisis"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:id="@+id/nameTextView"/>
+                    android:id="@+id/tipoAnalisisPaTextView"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_software"
+                    android:text="Nombre Paciente"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:id="@+id/contactoTextView"/>
+                    android:id="@+id/nombrePacientePaTextView"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/company_software"
+                    android:text="Nombre Laboratorio"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:id="@+id/direccionTextView"/>
+                    android:id="@+id/nombreLaboratorioPaTextView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Nombre Medico"
+                    android:textStyle="bold"
+                    android:id="@+id/nombreMedicoPaTextView"/>
+           <!--     <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Motivo consulta Paciente"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/motivoConsultaPacienteTextView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resultado Analisis Laboratorio"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/resultadoAnalisisLaboratorioTextView"/>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/ComentarioValoracionEditText"
+                    <EditText android:id="@+id/diagnosticoMedicoEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"/>
-                </android.support.design.widget.TextInputLayout>
+                </android.support.design.widget.TextInputLayout>-->
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/grabarValoracionButton"

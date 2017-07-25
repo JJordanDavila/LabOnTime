@@ -53,7 +53,7 @@ public class ResultadoPacienteFragment extends Fragment {
 
 
         analisisPacientes = new ArrayList<>();
-        analisisPacienteRecyclerView = (RecyclerView) myView.findViewById(R.id.analisisMedicoRecyclerView);
+        analisisPacienteRecyclerView = (RecyclerView) myView.findViewById(R.id.analisisPacienteRecyclerView);
         analisisPacienteAdapter = new AnalisisPacienteAdapter(analisisPacientes);
         analisisPacienteLayoutManager = new LinearLayoutManager(getContext());
         analisisPacienteRecyclerView.setAdapter(analisisPacienteAdapter);
@@ -67,7 +67,7 @@ public class ResultadoPacienteFragment extends Fragment {
     private void updateAnalisisPaciente() {
         try {
 
-            AndroidNetworking.get(LabOnTimeService.ANALISIS_LABORATORIO_URL)
+            AndroidNetworking.get(LabOnTimeService.ANALISIS_PACIENTE_URL)
                     .addQueryParameter("paciente"   ,"0")
                     .setTag(TAG)
                     .setPriority(Priority.LOW)

@@ -177,7 +177,7 @@ public class AnalisisPaciente {
             analisisPaciente.setId_medical_analisis(jsonAnalisisMedico.getInt("id_medical_analisis"));
             analisisPaciente.setId_request_analisis(jsonAnalisisMedico.getInt("id_request_analisis"));
             analisisPaciente.setResultado_laboratorio(jsonAnalisisMedico.getString("resultado_laboratorio"));
-            analisisPaciente.setStatus_medical_analisis(jsonAnalisisMedico.getString("status_laboratorio"));
+            analisisPaciente.setStatus_medical_analisis(jsonAnalisisMedico.getString("status_medical_analisis"));
             analisisPaciente.setDiagnostico_medico(jsonAnalisisMedico.getString("diagnostico_medico"));
             analisisPaciente.setMotivo_consulta_paciente(jsonAnalisisMedico.getString("motivo_consulta_paciente"));
             analisisPaciente.setId_laboratorio(jsonAnalisisMedico.getInt("id_laboratorio"));
@@ -204,7 +204,7 @@ public class AnalisisPaciente {
                 analisisPaciente.setId_medical_analisis(jsonAnalisisMedico.getInt("id_medical_analisis"));
                 analisisPaciente.setId_request_analisis(jsonAnalisisMedico.getInt("id_request_analisis"));
                 analisisPaciente.setResultado_laboratorio(jsonAnalisisMedico.getString("resultado_laboratorio"));
-                analisisPaciente.setStatus_medical_analisis(jsonAnalisisMedico.getString("status_laboratorio"));
+                analisisPaciente.setStatus_medical_analisis(jsonAnalisisMedico.getString("status_medical_analisis"));
                 analisisPaciente.setDiagnostico_medico(jsonAnalisisMedico.getString("diagnostico_medico"));
                 analisisPaciente.setMotivo_consulta_paciente(jsonAnalisisMedico.getString("motivo_consulta_paciente"));
                 analisisPaciente.setId_laboratorio(jsonAnalisisMedico.getInt("id_laboratorio"));

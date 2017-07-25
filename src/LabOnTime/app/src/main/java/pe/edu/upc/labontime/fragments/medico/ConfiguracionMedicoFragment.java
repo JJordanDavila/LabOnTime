@@ -146,7 +146,8 @@ public class ConfiguracionMedicoFragment extends Fragment {
                //new HttpAsyncTask().execute(LabOnTimeService.UPDATE_DATOS_MEDICO);
 
                 try{
-                    ActualizarMedico();
+                    //ActualizarMedico();
+                    updateUsuarioMedico(idmedico,password,direccion,correo,telefono);
                 }
                 catch(Exception ex)
                 {
@@ -174,6 +175,7 @@ public class ConfiguracionMedicoFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseBD01> call, Response<ResponseBD01> response) {
 //                     if (response.isSuccess()) {
+                //WCB:Si el codigo es 200, actualizacion exitosa
                 if (response.code() == 200) {
                     entityResponseBD01 = response.body();
                     // Toast.makeText(this,"entregado" , Toast.LENGTH_SHORT).show();

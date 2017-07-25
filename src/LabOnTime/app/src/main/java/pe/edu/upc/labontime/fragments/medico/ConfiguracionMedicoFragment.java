@@ -47,8 +47,14 @@ import java.util.ArrayList;
 
 import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.models.Analysis;
+import pe.edu.upc.labontime.models.ResponseBD01;
 import pe.edu.upc.labontime.models.User;
 import pe.edu.upc.labontime.network.LabOnTimeService;
+import pe.edu.upc.labontime.services.LoginService;
+import pe.edu.upc.labontime.services.ServiceGenerator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +64,7 @@ public class ConfiguracionMedicoFragment extends Fragment {
     public static String TAG = "LabOnTimeApp";
     //List<AnalisisMedico> analisisMedicos;
     //User userEntity= new User();
-
+    ResponseBD01 entityResponseBD01= new ResponseBD01();
     EditText passwordMeEditText;
     EditText direccionMeEditText;
     EditText correoMeEditText;
@@ -159,6 +165,30 @@ public class ConfiguracionMedicoFragment extends Fragment {
     //AQUI LLEGAN LOS PARAMETROS PARA HACER EL INSERT
     public  void updateUsuarioMedico(int idpaciente ,String password, String direccion, String correo, String telefono){
 
+        LoginService loginService = ServiceGenerator.createService(LoginService.class);
+        Call<ResponseBD01> call = loginService.getAccessToken(idpaciente, password, direccion, correo, telefono);
+
+
+        call.enqueue(new Callback<ResponseBD01>() {
+
+            @Override
+            public void onResponse(Call<ResponseBD01> call, Response<ResponseBD01> response) {
+//                     if (response.isSuccess()) {
+                if (response.code() == 200) {
+                    entityResponseBD01 = response.body();
+                    // Toast.makeText(this,"entregado" , Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBD01> call, Throwable t) {
+                // something went completely south (like no internet connection)
+
+                Log.d("Error", t.getMessage());
+            }
+        });
+
+        /*
        // User userEntity= new User();
             AndroidNetworking.post(LabOnTimeService.UPDATE_DATOS_MEDICO)
                     .addBodyParameter("id", "4")
@@ -194,7 +224,7 @@ public class ConfiguracionMedicoFragment extends Fragment {
                         public void onError(ANError anError) {
 
                         }
-                    });
+                    });*/
 
 
 

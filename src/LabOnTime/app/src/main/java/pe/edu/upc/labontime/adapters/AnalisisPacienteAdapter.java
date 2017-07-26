@@ -13,6 +13,7 @@ import java.util.List;
 
 import pe.edu.upc.labontime.LabUpApp;
 import pe.edu.upc.labontime.R;
+import pe.edu.upc.labontime.activities.IconMedicoAnalisisActivity;
 import pe.edu.upc.labontime.activities.IconPacienteAnalisisActivity;
 import pe.edu.upc.labontime.models.AnalisisPaciente;
 
@@ -38,14 +39,15 @@ public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacien
     @Override
     public void onBindViewHolder(AnalisisPacienteAdapter.ViewHolder holder, final int position) {
         holder.tipoAnalisisPaTextView.setText(analisisPacientes.get(position).getTipo_analisis());
-        holder.nombrePacientePaTextView.setText("Paciente:  "+ analisisPacientes.get(position).getNombres_paciente());
+        //holder.nombrePacientePaTextView.setText("Paciente:  "+ analisisPacientes.get(position).getNombres_paciente());
         holder.nombreLaboratorioPaTextView.setText("Laboratorio:  "+ analisisPacientes.get(position).getNombre_laboratorio());
         holder.nombreMedicoPaTextView.setText("Medico:  "+ analisisPacientes.get(position).getNombres_doctor());
         holder.analisisPacienteCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LabUpApp.getInstance().setCurrentAnalisisPaciente(analisisPacientes.get(position));
-                view.getContext().startActivity(new Intent(view.getContext(),IconPacienteAnalisisActivity.class));
+
+                LabUpApp.getInstance().setCurrentAnalisisPaciente(analisisPacientes.get(position));//0
+                view.getContext().startActivity(new Intent(view.getContext(), IconPacienteAnalisisActivity.class));
             }
         });
 
@@ -63,8 +65,8 @@ public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacien
         TextView nombrePacientePaTextView;
         TextView nombreLaboratorioPaTextView;
         TextView nombreMedicoPaTextView;
-        TextView motivoConsultaPacientePaTextView;
-        TextView resultadoAnalisisLaboratorioPaTextView;
+        TextView motivoConsultaPaTextView;
+        TextView resultadoAnalisisLabTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -73,8 +75,8 @@ public class AnalisisPacienteAdapter extends RecyclerView.Adapter<AnalisisPacien
             nombrePacientePaTextView = (TextView) itemView.findViewById(R.id.nombrePacientePaTextView);
             nombreLaboratorioPaTextView = (TextView) itemView.findViewById(R.id.nombreLaboratorioPaTextView);
             nombreMedicoPaTextView = (TextView) itemView.findViewById(R.id.nombreMedicoPaTextView);
-           // motivoConsultaPacientePaTextView= (TextView) itemView.findViewById(R.id.motivoConsultaPacientePaTextView);
-           // resultadoAnalisisLaboratorioPaTextView= (TextView) itemView.findViewById(R.id.resultadoAnalisisLaboratorioPaTextView);
+            motivoConsultaPaTextView= (TextView) itemView.findViewById(R.id.motivoConsultaPaTextView);
+            resultadoAnalisisLabTextView= (TextView) itemView.findViewById(R.id.resultadoAnalisisLabTextView);
         }
     }
 

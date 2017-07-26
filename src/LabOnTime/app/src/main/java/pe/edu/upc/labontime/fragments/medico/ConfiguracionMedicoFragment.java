@@ -106,7 +106,9 @@ public class ConfiguracionMedicoFragment extends Fragment {
 
         Bundle bundle = getActivity().getIntent().getExtras();
         //CAPUTARANDO EL ID DE LA PERSONA
-        entityUser.setId(bundle.getInt("id")); //IDMEDICO ----4 george
+        entityUser.setId(bundle.getInt("id"));
+
+        idmedico= entityUser.getId();  //IDMEDICO ----4 george
 
         passwordMeEditText = (EditText) myView.findViewById(R.id.passwordMeEditText);
         direccionMeEditText = (EditText) myView.findViewById(R.id.direccionMeEditText);
@@ -141,7 +143,7 @@ public class ConfiguracionMedicoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = getActivity().getIntent().getExtras();
-                idmedico=4;  //ESTE CAMPO ESTA EN DURO
+                //idmedico=;  //ESTE CAMPO ESTA EN DURO
                 password = passwordMeEditText.getText().toString();
                 direccion = direccionMeEditText.getText().toString();
                 correo = correoMeEditText.getText().toString();

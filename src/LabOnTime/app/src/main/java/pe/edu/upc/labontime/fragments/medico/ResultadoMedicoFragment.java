@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.labontime.JSONfunctions;
+import pe.edu.upc.labontime.LabUpApp;
 import pe.edu.upc.labontime.R;
 import pe.edu.upc.labontime.adapters.AnalisisMedicoAdapter;
 import pe.edu.upc.labontime.models.AnalisisMedico;
@@ -68,7 +69,8 @@ public class ResultadoMedicoFragment extends Fragment{
     JSONObject jsonobjectAnalisisMedico;
     JSONArray  jsonarrayAnalisisMedico;
     ArrayList<String> analysisMedicolist;
-    ArrayList<AnalisisMedico> analisisMedico;
+    //ArrayList<AnalisisMedico> analisisMedico;
+    AnalisisMedico analisisMedico;
 
     String imc_met;
     Button buscarResultadoLabButton;
@@ -99,13 +101,15 @@ public class ResultadoMedicoFragment extends Fragment{
         analisisMedicoLayoutManager = new LinearLayoutManager(getContext());
         analisisMedicoRecyclerView.setAdapter(analisisMedicoAdapter);
         analisisMedicoRecyclerView.setLayoutManager(analisisMedicoLayoutManager);
+       // analisisMedico = LabUpApp.getInstance().getCurrentAnalisisMedico();
+
 
         buscarResultadoLabButton = (Button) myView.findViewById(R.id.buscarResultadosLabButton);
         buscarResultadoLabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                updateAnalisisMedico();
+                buscarAnalisisMedico();
 
             }
 
@@ -289,7 +293,7 @@ public class ResultadoMedicoFragment extends Fragment{
         }
     }
 
-    private void updateAnalisisMedico() {
+    private void buscarAnalisisMedico() {
         try {
 
             AndroidNetworking.get(LabOnTimeService.ANALISIS_LABORATORIO_URL)

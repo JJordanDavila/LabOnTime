@@ -46,22 +46,13 @@ public class AnalisisMedicoAdapter extends RecyclerView.Adapter<AnalisisMedicoAd
         holder.analisisMedicoCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("currentPosition", position);
-                Intent iconIntent = new Intent(view.getContext(), IconMedicoAnalisisActivity.class);
-                iconIntent.putExtras(bundle);
-                view.getContext().startActivity(iconIntent);
-            }
-        });
-      /*  holder.analisisMedicoCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                LabUpApp.getInstance().setCurrentAnalisisMedico(analisisMedicos.get(position));
+                LabUpApp.getInstance().setCurrentAnalisisMedico(analisisMedicos.get(position));//0
                 view.getContext().startActivity(new Intent(view.getContext(), IconMedicoAnalisisActivity.class));
 
-            }
-        });*/
+
+                }
+            });
 
     }
 

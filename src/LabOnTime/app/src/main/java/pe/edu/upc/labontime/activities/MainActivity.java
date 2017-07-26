@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                                /*WCB:Consumo del servicio de login capturando parametros*/
                                 userEntity = User.buildObject(response.getJSONObject("user"));
 
-                                if (userEntity.getDescription().equals("Paciente")) {
+                                if (userEntity.getDescription().equals("Paciente")&& userEntity.getName().equals(usuarioEditText.getText().toString()) && userEntity.getPassword().equals(passwordEditText.getText().toString())) {
                                     Toast.makeText(getApplicationContext(),
                                             "Redirecting...", Toast.LENGTH_SHORT).show();
 
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                                     intent.putExtra("speciality", userEntity.getSpeciality());
 
                                     startActivity(intent);
-                                } else if (userEntity.getDescription().equals("Medico")) {
+                                } else if (userEntity.getDescription().equals("Medico")&& userEntity.getName().equals(usuarioEditText.getText().toString()) && userEntity.getPassword().equals(passwordEditText.getText().toString())) {
                                     Toast.makeText(getApplicationContext(),
                                             "Redirecting...", Toast.LENGTH_SHORT).show();
 
@@ -142,13 +142,11 @@ public class MainActivity extends AppCompatActivity {
                                     startActivity(intent);
 
                                 } else {
-                                    Toast.makeText(getApplicationContext(),
-                                            "Wrong Credentials...", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Verificar Credenciales...", Toast.LENGTH_SHORT).show();
 
                                     usuarioEditText.setVisibility(View.VISIBLE);
                                     usuarioEditText.setBackgroundColor(Color.RED);
                                 }
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

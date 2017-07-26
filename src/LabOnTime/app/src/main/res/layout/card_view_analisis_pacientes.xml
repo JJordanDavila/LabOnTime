@@ -34,12 +34,13 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
                     android:id="@+id/tipoAnalisisPaTextView"/>
-                <TextView
+
+<!--                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="NOMBRE PACIENTE"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/nombrePacientePaTextView"/>
+                    android:id="@+id/nombrePacientePaTextView"/>-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -53,6 +54,33 @@
                     android:text="NOMBRE MEDICO"
                     android:layout_marginBottom="10dp"
                     android:id="@+id/nombreMedicoPaTextView"/>
+
+                <!--<TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Motivo consulta Paciente"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/motivoConsultaPaTextView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resultado Analisis Laboratorio"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:id="@+id/resultadoAnalisisLabTextView"/>-->
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+                    <EditText android:id="@+id/diagnosticoMedicoPaEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"/>
+                </android.support.design.widget.TextInputLayout>
 
 
             </LinearLayout>

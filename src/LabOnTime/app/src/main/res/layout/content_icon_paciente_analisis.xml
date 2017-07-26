@@ -61,13 +61,13 @@
                     android:text="Nombre Medico"
                     android:textStyle="bold"
                     android:id="@+id/nombreMedicoPaTextView"/>
-           <!--     <TextView
+               <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Motivo consulta Paciente"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:id="@+id/motivoConsultaPacienteTextView"/>
+                    android:id="@+id/motivoConsultaPaTextView"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -75,18 +75,18 @@
                     android:text="Resultado Analisis Laboratorio"
                     android:gravity="center_horizontal"
                     android:textStyle="bold"
-                    android:id="@+id/resultadoAnalisisLaboratorioTextView"/>
+                    android:id="@+id/resultadoAnalisisLabTextView"/>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/diagnosticoMedicoEditText"
+                    <EditText android:id="@+id/diagnosticoMedicoPaEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"/>
-                </android.support.design.widget.TextInputLayout>-->
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/grabarValoracionButton"

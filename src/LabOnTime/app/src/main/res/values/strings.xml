@@ -94,7 +94,7 @@ Apples.</string>
     <string name="title_activity_icon_paciente_analisis">Resultado Laboratorio-Medico</string>
     <string name="title_activity_lista_analisis_medico">ListaAnalisisMedico</string>
     <string name="title_activity_analisis_medico">AnalisisMedicoActivity</string>
-    <string name="title_activity_icon_medico_analisis">IconMedicoAnalisisActivity</string>
+    <string name="title_activity_icon_medico_analisis">Inforamcion Gral Analisis</string>
 
 
 </resources>

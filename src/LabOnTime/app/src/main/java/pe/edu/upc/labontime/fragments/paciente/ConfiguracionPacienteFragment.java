@@ -63,6 +63,8 @@ public class ConfiguracionPacienteFragment extends Fragment {
         //CAPUTARANDO EL ID DE LA PACIENTE
         entityUser.setId(bundle.getInt("id"));   //IDPACIENTE
 
+        idpaciente=entityUser.getId();
+
 
         passwordPaEditText = (EditText) myView.findViewById(R.id.passwordPaEditText);
         direccionPaEditText = (EditText) myView.findViewById(R.id.direccionPaEditText);
@@ -96,7 +98,7 @@ public class ConfiguracionPacienteFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-              idpaciente= 2;  //ESTE CAMPO ESTA EN DURO
+              //idpaciente= 2;  //ESTE CAMPO ESTA EN DURO
               password = passwordPaEditText.getText().toString();
               direccion = direccionPaEditText.getText().toString();
               correo = correoPaEditText.getText().toString();
